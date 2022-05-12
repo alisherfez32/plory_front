@@ -3,16 +3,11 @@
 		<!--Sidebar with Dimmer -->
 		<div class="fixed inset-0 flex z-40 top-10">
 			<!-- Sidebar -->
-			<div
-				class="absolute flex top-6 h-screen z-20"
-				
-			>
+			<div class="absolute flex top-6 h-screen z-20">
 				<!-- Sidebar Content -->
-				<div
-					ref="content"
-					class="transition-all duration-700 bg-gray-200 overflow-hidden"
-					
-				>
+				
+				<div ref="content" class="transition-all duration-700 bg-gray-200 overflow-hidden">
+					<Search />
 					<div class="w-64 font-bold text-xl">
                         <TreeBrowser v-for="root in root" :key="root.name"
                         :node="root"/>
@@ -26,9 +21,11 @@
 
 <script>
 import TreeBrowser from './TreeBrowser.vue'
+import Search from '../Search.vue'
 export default {
     components: {
-     TreeBrowser
+     TreeBrowser,
+	 Search
     },
 	data() {
 		return {

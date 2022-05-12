@@ -14,9 +14,9 @@
             return {
                 items: [
                   {id: 'food/', name: 'Food'},
-                  {id: 'cost-of-living/', name: 'Cost Of Living'},
                   {id: 'transport/', name: 'Transport'},
                   {id: 'app-and-website/', name: 'Apps & Websites'},
+                  {id: 'image/', name: 'Images'},
                 //   {id: 'language', name: 'Language'},
                 ]
             }
@@ -24,7 +24,7 @@
         methods: {
             async goToItem(name){
                 const country_slug = this.$route.params.country_slug
-
+                
                 this.$router.push({name: name, params: {country_slug: country_slug }})
             }
         },

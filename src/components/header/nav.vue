@@ -17,9 +17,10 @@
             <img class="hidden lg:block h-10 w-auto" src="" alt="LOGO" />
           </div>
           <div class="hidden sm:block sm:ml-6">
-            <div class="flex space-x-4">
+            <Search />
+            <!-- <div class="flex space-x-4">
               <a v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'px-3 py-2 rounded-md text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</a>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
@@ -50,10 +51,11 @@
 <script>
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { MenuIcon, XIcon } from '@heroicons/vue/outline'
+import Search from '../Search.vue'
 import Sidebar from '@/components/Tree/Sidebar.vue'
 import TreeLeft from '@/components/Tree/TreeLeft.vue'
 const navigation = [
-  // { name: 'Github', href: 'https://github.com/alisherfez32',},
+  { name: 'Github', href: 'https://github.com/alisherfez32',},
   // { name: 'Gigs', href: '#', current: false, value: 'ContentB' },
   // { name: 'Freelance', href: '#', current: false, value: 'ContentC'},
   // { name: 'Quick Jobs', href: '#', current: false, value: 'ContentD'},
@@ -71,7 +73,8 @@ export default {
     MenuIcon,
     XIcon,
     Sidebar,
-    TreeLeft
+    TreeLeft,
+    Search,
   },
   emits: ['component'],
   mounted() {
