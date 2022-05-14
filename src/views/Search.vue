@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>Search</h1>
-        
+        {{search}}
     </div>
 </template>
 
@@ -42,8 +42,7 @@ import axios from 'axios';
 
                 this.$store.commit("setIsLoading", false)
             }
-        }
-        
+        },
     }
 </script>
 

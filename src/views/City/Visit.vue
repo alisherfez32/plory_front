@@ -3,17 +3,27 @@
         <Citynav />
         <h1>Visits</h1>
         {{visits}}
+        <!-- <Visit 
+        v-for="visit in visits" 
+        :key="visit.id" 
+        :node="visit"/> -->
+        <div class="flex flex-wrap w-full justify-center items-center">
+            <Visit v-for="i in 10" :key="i"/>
+        </div>
     </div>
 </template>
 
 <script>
 import Citynav from '../../components/header/Citynav.vue';
+import Visit from '../../components/City/Visit.vue';
 
 import axios from 'axios';
+
     export default {
         name: 'Cost',
         components: {
-            Citynav
+            Citynav,
+            Visit
         },
         data(){
             return {

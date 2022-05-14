@@ -24,12 +24,8 @@
         methods: {
             goToItem(name){
                 const city_slug = this.$route.params.city_slug
-                const country_slug = this.$route.params.country_slug
-                if(name !== 'Image'){
-                    this.$router.push({name: name, params: {city_slug: city_slug }})
-                } else {
-                    this.$router.push({name: name, params: {country_slug: country_slug, city_slug: city_slug}})
-                }
+                
+                this.$router.push({name: name, params: {city_slug: city_slug }})
                 
             }
         }

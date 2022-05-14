@@ -39,7 +39,7 @@ import axios from 'axios'
                 let url = ''
 
                 if(city_slug){
-                    url = `/api/v1/images/${country_slug}/${city_slug}/`
+                    url = `/api/v1/images/city/${city_slug}/`
                     this.isCountry = false
                 } else {
                     this.isCountry = true

@@ -88,7 +88,7 @@ const routes = [
     component: Image
   },
   {
-    path: '/image/:country_slug/:city_slug',
+    path: '/image/:city_slug',
     name: 'Image',
     component: Image
   },
