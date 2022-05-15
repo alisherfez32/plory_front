@@ -1,36 +1,31 @@
 <template>
-    <div>
+    <div class="flex flex-col w-full justify-center items-center">
         <Countrynav />
-        <h1>Apps and Websites</h1>
-        {{app}}
+        <p class="font-bold text-lg ">{{why}}</p>
         <hr class="h-6">
-
-        <hr>
-        <table>
-            <thead>
-                <th>apps_and_websites</th>
-            </thead>
-            <tr v-for="item in apps_and_websites" :key="item.id">
-                <td>
-                    {{item}}
-                </td>
-            </tr>
-        </table>
+        <div class="w-3/5 flex flex-wrap justify-center items-center">
+            <AppsAndWebsites :node="app" v-for="app in apps_and_websites" :key="app.id"/>
+        </div>
     </div>
+    
 </template>
 
 <script>
 import Countrynav from '@/components/header/Countrynav.vue'
+import AppsAndWebsites from '../../components/Country/AppWeb.vue'
+
 import axios from 'axios';
     export default {
         name: 'Apps',
         components: {
-            Countrynav
+            Countrynav,
+            AppsAndWebsites
         },
         data(){
             return {
                 app: {
                 },
+                why: '',
                 apps_and_websites: []
             }
         },
@@ -45,6 +40,7 @@ import axios from 'axios';
                 
                 await axios.get(`/api/v1/apps/country/${country_slug}/`).then(response => {
                     this.app = response.data
+                    this.Apps()
                 })
                 .catch(error => {
                     console.log(error)
@@ -54,19 +50,18 @@ import axios from 'axios';
                 
                 document.title = 'Apps | ' + country_slug
             },
-
-        },
-        computed: {
-            apps_and_websites(){
-                let array = []
+            Apps(){
                 let has = Object.keys(this.app).length
                 if(has > 0){
                     this.app.forEach(el => {
-                    array = el.apps_and_websites
+                    this.apps_and_websites = el.apps_and_websites
+                    this.why = el.apps_for_what
                 }) 
-                return { array }
                 }
             }
+
+        },
+        computed: {
         }
     }
 </script>

@@ -1,19 +1,24 @@
 <template>
-    <div>
+    <div class="flex flex-col w-full justify-center items-center">
         <Citynav />
         <h1>Scores</h1>
-        {{score}}
+        <div class="w-full">
+            <Scores v-for="scores in score" :key="scores.id" 
+            :node="scores">
+            </Scores>
+        </div>
     </div>
 </template>
 
 <script>
 import Citynav from '../../components/header/Citynav.vue';
+import Scores from '../../components/City/Score.vue'
 
 import axios from 'axios';
     export default {
         name: 'Cost',
         components: {
-            Citynav
+            Citynav, Scores
         },
         data(){
             return {

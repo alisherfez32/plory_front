@@ -38,7 +38,7 @@
   <form>
       FROM {{first}} to {{second}} {{number}}
     Result: 
-    <h1>{{result.toFixed(2)}}</h1>
+    <h1>{{result}}</h1>
   </form>
   </div>
 </template>

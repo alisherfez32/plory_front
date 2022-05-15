@@ -7,8 +7,8 @@
       <div class="m-2 h-full hidden sm:flex">
         <TreeLeft class="flex flex-col"/>
       </div>
-      <div>
-        <router-view/>
+      <div class="w-full flex justify-center items-center">
+        <router-view />
       </div>
     </div>
     <Footer />

@@ -7,16 +7,16 @@
       </div>
       <div class="flex-col">
           <div class="flex flex-row w-full justify-between">
+              <p class="text-lg font-bold">{{node.status}}</p>
               <p class="text-lg font-bold">{{node.name}}</p>
-              <p class="text-sm font-bold">{{node.entry_fee}}$</p>
+              <p class="text-lg font-bold">From {{node.company}}</p>
           </div>
           <div class="w-full">
-              <p class="text-sm">{{node.description}}</p>
-              <p class="text-sm">{{node.best_time_togo}}</p>
+              <p class="text-sm">{{node.notes}}</p>
           </div>
           <div class="flex flex-row justify-between">
-              <p class="text-blue-300 text-lg underline"><a href="https://maps.google.com">On Mape</a></p>
-              <p class="text-sm bold">{{node.entry_fee}}$</p>
+              <p class="text-red-500 text-lg underline font-bold"><a href="https://maps.google.com">Book</a></p>
+              <p class="text-sm bold">📍{{node.city}}</p>
           </div>
       </div>
 
@@ -25,11 +25,8 @@
 
 <script>
     export default {
-        name: 'Visit',
+        name: 'Rent',
         props: ['node'],
-        mounted() {
-            console.log(this.node);
-        }
     }
 </script>
 

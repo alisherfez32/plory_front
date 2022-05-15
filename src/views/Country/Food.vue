@@ -1,19 +1,24 @@
 <template>
-    <div>
+    <div class="flex flex-col w-full justify-center items-center">
         <Countrynav />
         <h1>Foods</h1>
-        {{foods}}
+        <div class="flex flex-wrap w-full justify-center items-center">
+            <Food v-for="(food, index) in foods" :key="food.id" :node="food" :idx="index"
+            />
+        </div>
     </div>
 </template>
 
 <script>
 import Countrynav from '../../components/header/Countrynav.vue';
+import Food from '../../components/Country/Food.vue';
 
 import axios from 'axios';
     export default {
         name: 'Foods',
         components: {
-            Countrynav
+            Countrynav,
+            Food,
         },
         data(){
             return {

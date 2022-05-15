@@ -1,18 +1,24 @@
 <template>
-    <div>
+    <div class="flex flex-col w-full justify-center items-center">
         <Countrynav />
         <h1>Transports</h1>
-        {{transports}}
+        <div class="flex flex-wrap w-full justify-center items-center">
+            <Trans :node="trans" 
+            v-for="trans in transports" :key="trans.id" />
+        </div>
     </div>
 </template>
 
 <script>
 import Countrynav from '../../components/header/Countrynav.vue';
+import Trans from '../../components/Country/Trans.vue';
+
 import axios from 'axios';
     export default {
         name: 'Transport',
         components: {
-            Countrynav
+            Countrynav,
+            Trans
         },
         data(){
             return {

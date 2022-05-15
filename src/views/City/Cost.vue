@@ -1,19 +1,24 @@
 <template>
-    <div>
+    <div class="flex flex-col w-full justify-center items-center">
         <Citynav />
-        <h1>Costs</h1>
-        {{cost}}
+        <h1>Costs s</h1>
+        <div class="w-full">
+            <Costs :node="cost">
+            </Costs>
+        </div>
     </div>
 </template>
 
 <script>
 import Citynav from '../../components/header/Citynav.vue';
+import Costs from '../../components/City/Cost.vue'
 
 import axios from 'axios';
     export default {
         name: 'Cost',
         components: {
-            Citynav
+            Citynav,
+            Costs
         },
         data(){
             return {

@@ -1,17 +1,19 @@
 <template>
-    <div class="flex flex-col">
+    <div class="flex flex-col justify-center items-center">
         <Citynav class="flex items-center justify-center mt-0 h-16 m-2"/>
-        {{city}}
+        <InfoCity :node="city"/>
     </div>
 </template>
 
 <script>
 import Citynav from '@/components/header/Citynav.vue'
+import InfoCity from '../components/City.vue'
+
 import axios from 'axios'
     export default {
         name: 'City',
         components: {
-            Citynav
+            Citynav, InfoCity
         },
         data() {
             return {

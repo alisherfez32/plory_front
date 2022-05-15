@@ -1,23 +1,26 @@
 <template>
-    <div>
+    <div class="flex flex-col w-full justify-center items-center">
         <Citynav />
         <h1>Rents</h1>
-        {{rent}}
-    </div>
+        <div class="flex flex-wrap justify-center items-center w-full">
+            <Rents v-for="rents in rent" :node="rents" :key="rents.id"/>
+        </div>
+    </div> 
 </template>
 
 <script>
 import Citynav from '../../components/header/Citynav.vue';
+import Rents from '../../components/City/Rent.vue'
 
 import axios from 'axios';
     export default {
         name: 'Cost',
         components: {
-            Citynav
+            Citynav, Rents
         },
         data(){
             return {
-                rent: {}
+                rent: []
             }
         },
         mounted() {

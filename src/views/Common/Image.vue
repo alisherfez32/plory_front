@@ -1,9 +1,27 @@
 <template>
-    <div>
+    <div class="flex flex-col w-full justify-center items-center">
         <Countrynav v-if="isCountry"/>
         <Citynav v-else/>
         <hr>
-        {{images}}
+        <div class="flex flex-wrap justify-center items-center">
+            <Image 
+            v-for="image in images" :key="image.id" :node="image"
+            />
+            <!-- <div class="">
+                <Carousel :itemsToShow="3.95" :wrapAround="true">
+                <Slide v-for="slide in images" :key="slide.id">
+                  <div class="carousel__item">
+                      <Swiper :node="slide"/>
+                      <img :src="slide.get_image" alt="">
+                  </div>
+                </Slide>
+                <template #addons>
+                  <Navigation />
+                  <Pagination />
+                </template>
+            </Carousel>
+            </div> -->
+        </div>
     </div>
 </template>
 
@@ -11,6 +29,11 @@
 
 import Citynav from '../../components/header/Citynav.vue'
 import Countrynav from '../../components/header/Countrynav.vue'
+// import { Carousel, Pagination, Slide, Navigation } from 'vue3-carousel';
+// import 'vue3-carousel/dist/carousel.css';
+
+import Image from '../../components/Common/Image.vue'
+import Swiper from '../../components/Swiper.vue'
 import axios from 'axios'
 
     export default {
@@ -18,6 +41,9 @@ import axios from 'axios'
         components: {
             Citynav, 
             Countrynav,
+            Image,
+            Swiper,
+            // Carousel, Pagination, Slide, Navigation
         },
         data(){
             return {
@@ -63,5 +89,4 @@ import axios from 'axios'
 </script>
 
 <style lang="scss" scoped>
-
 </style>
