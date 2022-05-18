@@ -1,17 +1,16 @@
 <template>
-    <div class="rounded-2xl m-1 cursor-pointer transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-72 max-w-full bg-gray-200">
-      <div class="w-full relative">
-          <p class="mt-10 text-white z-10 absolute text-xl font-bold">#{{idx + 1}}</p>
-          <p class="mt-16 text-white z-10 absolute text-xl font-bold">{{node.name}}</p>
-          <p class="mt-20 text-white z-10 absolute text-xl font-bold">{{node.price}}$</p>
-          <div>
-              <p class="mt-40 leading-4 absolute text-white text-sm z-10 overflow-hidden">
-              {{node.description}}
-          </p>
-          </div>
-          <figure class="overflow-hidden">
-              <img class="rounded-2xl transform hover:scale-105 transition duration-700 ease-out" :src="node.get_image" alt="Course">
+    <div class="bg-gray-00 rounded-2xl px-3 m-1 cursor-pointer transform transition-all duration-200 ease hover:-translate-y-1 shadow-xl w-72 h-80">
+      <div class="">
+          <p class="my-2 text-xl font-bold">#{{idx + 1}} {{node.name}}</p>
+          <figure class="flex justify-center w-full">
+              <img class="max-h-44 rounded-2xl transform hover:scale-105 transition duration-700 ease-out" :src="node.get_image" alt="Course">
           </figure>
+           <div class="overflow-hidden">
+              <p class="max-h-16 text-sm overflow-hidden">
+              {{node.description}} ...
+              </p>
+          </div>
+          <p class="mb-2 text-xl font-bold">{{node.price}}$</p>
       </div>
     </div>
 </template>

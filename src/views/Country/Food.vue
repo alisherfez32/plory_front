@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col w-full justify-center items-center">
-        <Countrynav />
+        <Countrynav class="flex w-full"/>
         <h1>Foods</h1>
         <div class="flex flex-wrap w-full justify-center items-center">
             <Food v-for="(food, index) in foods" :key="food.id" :node="food" :idx="index"

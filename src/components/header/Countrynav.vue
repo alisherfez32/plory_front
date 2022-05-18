@@ -1,23 +1,35 @@
 <template>
-    <div class="inline-block">
-         <button class="first:border-l-0 border-2 border-r-gray-900 px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out" 
+    <div class="h-16 items-center justify-center mt-0">
+         <div class="flex flex-col justify-center items-center md:px-6 sm:px-4 px-2 cursor-pointer font-medium text-sm hover:bg-gray-300 active:underline" 
          v-for="item in items" :key="item.id"
          @click="goToItem(item.name)">
-         {{item.name}}
-      </button>
+         <component :is="item.icon"></component>
+         <p>{{item.text}}</p>
+        </div>
     </div>
 </template>
 
 <script>
+import guide from '../../assets/icons/nav/guide.vue'
+import food from '../../assets/icons/nav/food.vue'
+import trans from '../../assets/icons/nav/trans.vue'
+import apps from '../../assets/icons/nav/apps.vue'
+import image from '../../assets/icons/nav/image.vue'
+
     export default {
+        name: 'Country Navigation',
+        components: {
+            guide, food, trans, apps, image
+        },
         data(){
             return {
                 items: [
-                  {id: 'food/', name: 'Food'},
-                  {id: 'transport/', name: 'Transport'},
-                  {id: 'app-and-website/', name: 'Apps & Websites'},
-                  {id: 'image/', name: 'Images'},
-                //   {id: 'language', name: 'Language'},
+                  {icon: 'guide', id:'/', text: 'Guide', name: 'Country'},
+                  {icon: 'food',id: 'food/', text: 'Cuisine', name: 'Food'},
+                  {icon: 'trans',id: 'transport/', text: 'Transportion', name: 'Transport'},
+                  {icon: 'apps',id: 'app-and-website/', text: 'Apps&Webs', name: 'AppsAndWebs'},
+                  {icon: 'image',id: 'image/', text: 'Pictures', name: 'Images'},
+                // {id: 'language', name: 'Language'},
                 ]
             }
         },

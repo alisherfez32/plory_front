@@ -1,9 +1,9 @@
 <template>
     <div class="flex flex-col w-full justify-center items-center">
-        <Countrynav />
+        <Countrynav class="flex w-full"/>
         <p class="font-bold text-lg ">{{why}}</p>
         <hr class="h-6">
-        <div class="w-3/5 flex flex-wrap justify-center items-center">
+        <div class="flex flex-wrap w-full justify-center items-center">
             <AppsAndWebsites :node="app" v-for="app in apps_and_websites" :key="app.id"/>
         </div>
     </div>

@@ -1,11 +1,12 @@
 <template>
     <div class="flex flex-col w-full justify-center items-center">
-        <div class="flex flex-col">
-        <Countrynav class="flex items-center justify-center mt-0 h-16 m-2"/>
+         <Countrynav class="w-full flex"/>
+        <div class="">
+            <CountryInfo />
         </div>
         <hr>
         <p class="text-lg font-bold">List of Cities in {{country.name}}</p>
-        <div class="flex flex-wrapp justify-center items-centerw-full">
+        <div class="flex flex-wrap justify-center items-center w-full">
             <City v-for="city in citiesInCountry" :key="city.id" :node="city" @click="getToCity(city.citi_main_slug)"/>
         </div>
     </div>
@@ -14,13 +15,14 @@
 <script>
 import Countrynav from '@/components/header/Countrynav.vue'
 import City from '../components/City/index.vue'
+import CountryInfo from '../components/CountryInfo.vue'
 
 import axios from 'axios'
     export default {
         name: 'Country',
         components: {
             Countrynav,
-            City
+            City, CountryInfo
         },
         data(){
             return {

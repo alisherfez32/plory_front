@@ -59,7 +59,7 @@ const routes = [
   },
   {
     path: '/app-and-website/:country_slug',
-    name: 'Apps & Websites',
+    name: 'AppsAndWebs',
     component: App
   },
   {

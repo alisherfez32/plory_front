@@ -1,13 +1,15 @@
 <template>
-    <div class="flex flex-col justify-center items-center">
+    <div class="flex flex-col w-full justify-center items-center">
         <Citynav class="flex items-center justify-center mt-0 h-16 m-2"/>
-        <InfoCity :node="city"/>
+        <div class="w-full">
+            <InfoCity :node="city"/>
+        </div>
     </div>
 </template>
 
 <script>
 import Citynav from '@/components/header/Citynav.vue'
-import InfoCity from '../components/City.vue'
+import InfoCity from '../components/CityInfo.vue'
 
 import axios from 'axios'
     export default {
