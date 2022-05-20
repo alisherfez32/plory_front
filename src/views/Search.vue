@@ -45,12 +45,12 @@
             </div>
 
                         
-            <p class="font-bold text-lg" v-if="scores.length">📍Scores: </p>
+            <!-- <p class="font-bold text-lg" v-if="scores.length">📍Scores: </p>
             <div class="flex flex-wrap">
                 <Score
                 v-for="item in scores" 
                 :key="item" :node="item" />
-            </div>
+            </div> -->
 
                         
             <p class="font-bold text-lg" v-if="costs.length">📍Costs: </p>
@@ -72,14 +72,14 @@ import City from '../components/City/index.vue'
 import Cost from '../components/City/Cost.vue'
 import Food from '../components/Country/Food.vue'
 import Rent from '../components/City/Rent.vue'
-import Score from '../components/City/Score.vue'
+// import Score from '../components/City/Score.vue'
 import Transport from '../components/Country/Trans.vue'
 import Visit from '../components/City/Visit.vue'
 
     export default {
         name: 'Search',
         components: {
-            Country, City, Cost, Rent, Food, Score, Visit, Transport
+            Country, City, Cost, Rent, Food, Visit, Transport
         },
         data(){
             return {
@@ -91,7 +91,7 @@ import Visit from '../components/City/Visit.vue'
                 costs: [],
                 foods: [],
                 rents: [],
-                scores: [],
+                // scores: [],
                 transports: [],
                 visits: [],
             }
@@ -123,7 +123,7 @@ import Visit from '../components/City/Visit.vue'
                         this.costs = search['costs']
                         this.foods = search['foods']
                         this.rents = search['rents']
-                        this.scores = search['scores']
+                        // this.scores = search['scores']
                         this.transports = search['transports']
                         this.visits = search['visits']
                     })

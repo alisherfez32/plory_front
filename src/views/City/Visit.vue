@@ -1,11 +1,6 @@
 <template>
     <div>
-        <Citynav />
-        <h1>Visits</h1>
-        <!-- <Visit 
-        v-for="visit in visits" 
-        :key="visit.id" 
-        :node="visit"/> -->
+        <Citynav class="flex w-full"/>
         <div class="flex flex-wrap w-full justify-center items-center">
             <Visit v-for="item in visits" :key="item.id" :node="item"/>
         </div>

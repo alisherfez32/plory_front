@@ -1,30 +1,43 @@
 <template>
-    <div class="inline-block">
-         <button class="first:border-l-0 border-2 border-r-gray-900 px-6 py-2.5 bg-green-500 text-white font-medium text-xs leading-tight shadow-md hover:bg-green-600 hover:shadow-lg focus:bg-green-600 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-700 active:shadow-lg transition duration-150 ease-in-out" 
+    <div class="h-16 items-center justify-center mt-0">
+         <div class="flex flex-col justify-center items-center md:px-6 sm:px-4 px-2 cursor-pointer font-medium text-sm hover:bg-gray-300 active:underline" 
          v-for="item in items" :key="item.id"
          @click="goToItem(item.name)">
-         {{item.name}}
-      </button>
+         <component :is="item.icon"></component>
+         <p>{{item.text}}</p>
+        </div>
     </div>
 </template>
 
 <script>
+import guide from '../../assets/icons/nav/guide.vue'
+import cost from '../../assets/icons/nav/costs.vue'
+import rent from '../../assets/icons/nav/rent.vue'
+import see from '../../assets/icons/nav/see.vue'
+import image from '../../assets/icons/nav/image.vue'
     export default {
+        name: 'City Navigation',
+        components: {
+            guide, cost, image, see, rent
+        },
         data(){
             return {
                 items: [
-                  {id: 'cost-of-living/', name: 'Cost Of Living'},
-                  {id: 'score/', name: 'Score'},
-                  {id: 'visit/', name: 'See'},
-                  {id: 'stay/', name: 'Stay'},
-                  {id: 'image/', name: 'Image'},
+                  {text: 'Guide', icon: 'guide', id: '/', name: 'City'},
+                  {text: 'Cost of living', icon: 'cost', id: 'cost-of-living/', name: 'Cost Of Living'},
+                  {text: 'Stay', icon: 'rent', id: 'stay/', name: 'Stay'},
+                  {text: 'Experience', icon:'see', id: 'visit/', name: 'See'},
+                  {text: 'Photos', icon:'image', id: 'image/', name: 'Image'},
+                //   {id: 'score/', name: 'Score'},
                 ]
             }
         },
         methods: {
             goToItem(name){
                 const city_slug = this.$route.params.city_slug
-                
+                if(name==='City'){
+                    this.$router.push({name: name, params: {country_slug: 'c', city_slug: city_slug }})
+                }
                 this.$router.push({name: name, params: {city_slug: city_slug }})
                 
             }

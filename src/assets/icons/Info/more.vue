@@ -1,0 +1,18 @@
+<template>
+    <div>
+<svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 9L0.803848 0H11.1962L6 9Z" fill="#C4C4C4"/>
+</svg>
+
+    </div>
+</template>
+
+<script>
+    export default {
+        
+    }
+</script>
+
+<style lang="scss" scoped>
+
+</style>

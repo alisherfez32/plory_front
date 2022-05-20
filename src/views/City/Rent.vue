@@ -1,7 +1,6 @@
 <template>
     <div class="flex flex-col w-full justify-center items-center">
-        <Citynav />
-        <h1>Rents</h1>
+        <Citynav class="flex w-full"/>
         <div class="flex flex-wrap justify-center items-center w-full">
             <Rents v-for="rents in rent" :node="rents" :key="rents.id"/>
         </div>

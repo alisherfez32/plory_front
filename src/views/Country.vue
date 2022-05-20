@@ -65,7 +65,7 @@ import axios from 'axios'
 
                 const country_name = this.country.get_absolute_url
                 
-                await axios.get(`/api/v1/city-tree/detailed${country_name}`).then(response => {
+                await axios.get(`/api/v1/city-tree/detailed${country_name}/`).then(response => {
                     this.citiesInCountry = response.data
                 })
                 .catch(error => {

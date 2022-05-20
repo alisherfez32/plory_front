@@ -1,7 +1,6 @@
 <template>
     <div class="flex flex-col w-full justify-center items-center">
-        <Citynav />
-        <h1>Scores</h1>
+        <Citynav class="flex w-full"/>
         <div class="w-full">
             <Scores v-for="scores in score" :key="scores.id" 
             :node="scores">

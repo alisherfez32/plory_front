@@ -1,8 +1,8 @@
 <template>
-    <div class="rounded-2xl m-1 cursor-pointer transform transition-all duration-200 ease hover:-translate-y-1 shadow-sm w-72 max-w-full bg-gray-200">
+    <div class="px-2 py-1.5 rounded-2xl m-1 cursor-pointer transform transition-all duration-200 ease hover:-translate-y-1 shadow-md w-72 h-80">
       <div class="w-full">
-            <figure class="overflow-hidden">
-                <img class="rounded-2xl transform hover:scale-105 transition duration-700 ease-out" :src="node.get_image" alt="Course">
+            <figure class="flex justify-center w-full">
+                <img class="max-h-44 rounded-2xl transform hover:scale-105 transition duration-700 ease-out" :src="node.get_image" alt="Course">
             </figure>
       </div>
       <div class="flex-col">
@@ -15,20 +15,25 @@
               <p class="text-sm">{{node.best_time_togo}}</p>
           </div>
           <div class="flex flex-row justify-between">
-              <p class="text-blue-300 text-lg underline"><a href="https://maps.google.com">On Mape</a></p>
-              <p class="text-sm bold">{{node.entry_fee}}$</p>
+              <p class="flex flex-row text-blue-300 text-lg underline">
+                  <maps class="mt-1.5 mr-1"/>
+                  <a href="https://maps.google.com">On Map</a>
+               </p>
           </div>
       </div>
 
     </div>
 </template>
-
 <script>
+import maps from '../../assets/icons/Info/onmap.vue'
+
     export default {
         name: 'Visit',
         props: ['node'],
+        components: {
+            maps
+        },
         mounted() {
-            console.log(this.node);
         }
     }
 </script>

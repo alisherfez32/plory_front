@@ -1,10 +1,9 @@
 <template>
     <div class="flex flex-col w-full justify-center items-center">
-        <Citynav />
-        <h1>Costs s</h1>
-        <div class="w-full">
-            <Costs :node="cost">
-            </Costs>
+        <Citynav class="flex w-full"/>
+        <!-- {{cost}} -->
+        <div class="flex w-full justify-center items-center">
+            <Costs :node="cost" />
         </div>
     </div>
 </template>

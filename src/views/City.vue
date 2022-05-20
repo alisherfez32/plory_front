@@ -4,6 +4,7 @@
         <div class="w-full">
             <InfoCity :node="city"/>
         </div>
+        {{city}}
     </div>
 </template>
 
@@ -36,11 +37,11 @@ import axios from 'axios'
             async getCity(){
                 this.$store.commit("setIsLoading", true)
 
-                const country_slug = this.$route.params.country_slug
+                // const country_slug = this.$route.params.country_slug
                 const city_slug = this.$route.params.city_slug
                 
                 await axios
-                .get(`/api/v1/city-tree/detailed/${country_slug}/${city_slug}`)
+                .get(`/api/v1/city-tree/detailed/info/${city_slug}`)
                 .then(response => {
                     this.city = response.data
                 })
