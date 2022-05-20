@@ -1,11 +1,10 @@
 <template>
 	<div>
 		<!--Sidebar with Dimmer -->
-		<div class="fixed inset-0 flex z-40 top-10">
+		<div class="flex top-10 absolute h-full">
 			<!-- Sidebar -->
-			<div class="absolute flex top-6 h-screen z-20">
+			<div class="flex top-6  h-full z-20">
 				<!-- Sidebar Content -->
-				
 				<div ref="content" class="transition-all duration-700 bg-gray-200 overflow-hidden">
 					<Search />
 					<div class="w-64 font-bold text-xl">

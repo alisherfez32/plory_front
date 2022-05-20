@@ -26,7 +26,7 @@
         <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
          <!-- <p @click="postJob" class="text-white font-semibold	cursor-pointer">Recruit</p> -->
           <!-- Profile dropdown -->
-          <Menu as="div" class="ml-3 relative">
+          <!-- <Menu as="div" class="ml-3 relative">
             <div>
               <MenuButton class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                 <span class="sr-only">Open user menu</span>
@@ -40,7 +40,7 @@
                 </MenuItem>
               </MenuItems>
             </transition>
-          </Menu>
+          </Menu> -->
         </div>
       </div>
       </div>

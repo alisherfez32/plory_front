@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col w-full justify-center items-center">
         <Citynav class="flex items-center justify-center mt-0 h-16 m-2"/>
-        <div class="w-full">
+        <div class="w-full sm:mt-8 mt-4">
             <InfoCity :node="city"/>
         </div>
         {{city}}

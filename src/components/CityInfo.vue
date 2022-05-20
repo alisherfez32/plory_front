@@ -1,7 +1,7 @@
 <template>
     <div class="flex md:flex-row flex-col m-1 justify-center">
         <div class="flex md:flex-col flex-row m-1 items-center md:justify-start justify-center">
-            <div class="w-44 h-20 bg-gray-200 flex flex-row rounded-2xl p-1 m-1 justify-center items-center">
+            <div class="w-44 h-20 bg-[#AFE1DB] flex flex-row rounded-2xl p-1 m-1 justify-center items-center">
                 <p class="text-white font-bold text-2xl m-1">31*C</p>
                 <div class="text-xs flex flex-col justify-center m-0.5">
                     <p class="font-semibold">Humadity 79%</p>
