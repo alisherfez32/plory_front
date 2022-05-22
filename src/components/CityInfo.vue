@@ -1,21 +1,21 @@
 <template>
     <div class="flex md:flex-row flex-col m-1 justify-center">
-        <div class="flex md:flex-col flex-row m-1 items-center md:justify-start justify-center">
-            <div class="w-44 h-20 bg-[#AFE1DB] flex flex-row rounded-2xl p-1 m-1 justify-center items-center">
-                <p class="text-white font-bold text-2xl m-1">31*C</p>
+        <div class="flex md:flex-col lg:mr-28 md:mr-20 md:mb-0 mb-8 flex-row items-center md:justify-start justify-center">
+            <div class="md:w-44 md:h-20 h-16 bg-gray-200 flex flex-row rounded-2xl p-1 m-1 justify-center items-center">
+                <p class="font-bold text-2xl m-1">{{temp.toFixed(1)}}°C</p>
                 <div class="text-xs flex flex-col justify-center m-0.5">
-                    <p class="font-semibold">Humadity 79%</p>
-                    <p class="font-semibold">UV Index 6</p>
+                    <p class="md:font-semibold">Humadity: {{weather.humidity}}%</p>
+                    <p class="md:font-semibold">Pressure: {{weather.pressure}}hPa</p>
                 </div>
             </div>
-            <div class="md:mt-20 text-center h-20 w-40 flex flex-col rounded-xl justify-center items-center font-bold bg-gray-300">
-                <p>UTC+7, 2:04 PM,</p>
-                <p>Friday 15 April</p>
+            <div class="md:mt-20 text-center md:h-20 h-16 md:w-44 w-32 flex flex-col rounded-xl justify-center items-center font-bold bg-gray-300">
+                <p class="uppercase">{{time}}</p>
+                <p>{{date}}</p>
             </div>
         </div>
         <div class="md:ml-20 sm:ml-10 flex flex-col">
             <div class="flex flex-row">
-                <div class=""><smile /></div>
+                <div class="mr-2"><smile /></div>
                 <div class="flex flex-col">
                     <div class="">
                         <p class="">Cost of living / month</p>
@@ -32,8 +32,8 @@
                     </div>
                 </div>
                 <div class="flex flex-row sm:ml-6 ml-4">
-                    <div class=""><review /></div>
-                    <div class="flex flex-col ml-2">
+                    <div class="mr-2"><review /></div>
+                    <div class="flex flex-col ">
                         <div class="">
                             <p>Foreigner friendly</p>
                             <p class="font-semibold">YES</p>
@@ -47,7 +47,7 @@
             </div>
 
             <div class="flex flex-row mt-10">
-                <div class="h-full"><airplane /></div>
+                <div class="h-full mr-2"><airplane /></div>
 
                 <div class="flex flex-col">
                     <div>
@@ -59,8 +59,8 @@
                 </div>
 
                 <div class="flex flex-row sm:ml-6 ml-4">
-                <div class="h-full"><crime /></div>
-                <div class="flex flex-col ml-2">
+                <div class="h-full mr-2"><crime /></div>
+                <div class="flex flex-col">
                     <div class="">
                         <p>Crime rate</p>
                         <p class="font-semibold">54.62% (MODERATE)</p>
@@ -70,8 +70,8 @@
             </div>
 
             <div class="flex flex-row mt-10">
-                <div class="h-full"><maps /></div>
-                <div class="flex flex-col ml-2">
+                <div class="h-full mr-2"><maps /></div>
+                <div class="flex flex-col">
                     <div class="">
                         <p>Governor</p>
                         <p class="font-semibold">Joko Wldodo</p>
@@ -106,9 +106,15 @@ import maps from '../assets/icons/Info/map.vue'
 import review from '../assets/icons/Info/review.vue'
 import crime from '../assets/icons/Info/crime.vue'
 
+import dayjs from 'dayjs'
+// import utc from 'dayjs/plugin/utc'
+// dayjs.extend(utc)
+
     export default {
         props: {
-            node: Object
+            node: Object,
+            time: String,
+            weather: Object,
         },
         components: {
             smile, airplane, maps, review, crime
@@ -119,6 +125,17 @@ import crime from '../assets/icons/Info/crime.vue'
             },
             getToScore(e){
                 this.$router.push({name: 'Score', params:{city_slug: e}})
+            }
+        },
+        computed: {
+            temp(){
+              return this.weather.temp - 273
+            },
+            time(){
+              return dayjs(this.time).format("h:mm a")
+            },
+            date(){
+              return dayjs(this.time).format("dddd, MMMM D")
             }
         }
     }

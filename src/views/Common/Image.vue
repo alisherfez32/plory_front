@@ -2,7 +2,6 @@
     <div class="justify-center items-center">
         <Countrynav class="flex w-full" v-if="isCountry"/>
         <Citynav class="flex w-full" v-else/>
-        <hr>
         <div class="flex flex-wrap justify-center items-center">
             <Image 
             v-for="image in images" :key="image.id" :node="image"

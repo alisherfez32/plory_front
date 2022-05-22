@@ -17,6 +17,7 @@ import Currency from '../components/Currency.vue'
     },
     mounted() {
       this.$store.dispatch("getTree")
+      this.$router.push("/indonesia")
     },
     created() {
     },

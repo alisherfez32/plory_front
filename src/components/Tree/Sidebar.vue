@@ -1,9 +1,9 @@
 <template>
 	<div>
 		<!--Sidebar with Dimmer -->
-		<div class="flex top-10 absolute h-full">
+		<div class="flex absolute h-screen">
 			<!-- Sidebar -->
-			<div class="flex top-6  h-full z-20">
+			<div class="flex">
 				<!-- Sidebar Content -->
 				<div ref="content" class="transition-all duration-700 bg-gray-200 overflow-hidden">
 					<Search />

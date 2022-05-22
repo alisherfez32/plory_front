@@ -1,47 +1,47 @@
 <template>
-    <div class="flex flex-col w-full">
+    <div class="flex flex-col w-full md:ml-10 ml-4">
         <p>Results is for query: "{{this.query}}"</p>
         <div class="flex flex-col">
             <p class="font-bold text-lg" v-if="countries.length">📍Countries: </p>
             <div>
                 <Country class=""
                 v-for="item in countries" 
-                :key="item.id" :node="item" />
+                :key="item.id" :node="item" @click="getCountry(item.get_absolute_url)"/>
             </div>
             
             <p class="font-bold text-lg" v-if="cities.length">📍Cities: </p>
             <div class="flex flex-wrap">
                 <City
                 v-for="city in cities" 
-                :key="city" :node="city" />
+                :key="city" :node="city" @click="getCity(city.country, city.citi_main_slug)"/>
             </div>
             
             <p class="font-bold text-lg" v-if="foods.length">📍Foods: </p>
             <div class="flex flex-wrap">
                 <Food
                 v-for="item in foods" 
-                :key="item" :node="item" />
+                :key="item" :node="item" @click="getFood(item.country)"/>
             </div>
             
             <p class="font-bold text-lg" v-if="rents.length">📍Rents: </p>
             <div class="flex flex-wrap">
                 <Rent
                 v-for="item in rents" 
-                :key="item" :node="item" />
+                :key="item" :node="item" @click="getRent(item.city)"/>
             </div>
             
             <p class="font-bold text-lg" v-if="transports.length">📍Transports: </p>
             <div class="flex flex-wrap">
                 <Transport
                 v-for="item in transports" 
-                :key="item" :node="item" />
+                :key="item" :node="item" @click="getTrans(item.country)"/>
             </div>
             
             <p class="font-bold text-lg" v-if="visits.length">📍Visits: </p>
             <div class="flex flex-wrap">
                 <Visit
                 v-for="item in visits" 
-                :key="item" :node="item" />
+                :key="item" :node="item" @click="getVisit(item.city)"/>
             </div>
 
                         
@@ -54,10 +54,10 @@
 
                         
             <p class="font-bold text-lg" v-if="costs.length">📍Costs: </p>
-            <div class="flex flex-wrap">
+            <div class="flex flex-wrap cursor-pointer">
                 <Cost
                 v-for="item in costs" 
-                :key="item" :node="item" />
+                :key="item" :node="item" @click="getCost(item.city)"/>
             </div>
 
         </div>
@@ -132,6 +132,28 @@ import Visit from '../components/City/Visit.vue'
 
                 this.$store.commit("setIsLoading", false)
             },
+            getCountry(e){
+                this.$router.push(e)
+            },
+            getCity(b, e){
+                this.$router.push({name: 'City', params:{country_slug: b, city_slug: e}})
+            },
+            getFood(e){
+                this.$router.push({name: 'Food', params:{country_slug: e}})
+            },
+            getRent(e){
+                this.$router.push({name: 'Stay', params:{city_slug: e}})
+            },
+            getTrans(e) {
+                this.$router.push({name: 'Transport', params:{country_slug: e}})
+            },
+            getVisit(e){
+                this.$router.push({name: 'See', params:{city_slug: e}})
+            },
+            getCost(e){
+                // console.log(e);
+                this.$router.push({name: 'Cost Of Living', params:{city_slug: e}})
+            }
         },
     }
 </script>

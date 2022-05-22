@@ -4,12 +4,12 @@
             <div class="flex flex-row mb-3">
               <p class="bg-gray-300 px-2 py-0.5 h-6 text-sm rounded-xl">Eating out</p>
               <div class="ml-2 mt-3.5 cursor-pointer">
-                <less  @click="less" class="" v-if="opened"/>
-                <more @click="more" v-else/>
+                <less @click="less" v-show="isOpen"/>
+                <more @click="less" v-show="!isOpen"/>
               </div>
             </div>
           </div>
-          <div>
+          <div >
             <div
             class="flex flex-row " v-for="(value, key) in node" :key="value">
               <p class="mt-2.5 w-4/5 text-lg text-gray-900 font-bold">
@@ -36,18 +36,18 @@ import more from '../../assets/icons/Info/more.vue'
       },
       dada(){
         return {
-          opened: true,
+          // isOpen: true,
         }
       },
       methods: {
         less() {
-          console.log('jasdhg');
-          this.opened = false;
+          // console.log('jasdhg');
+          this.isOpen = !this.isOpen
         },
-        more() {
-          console.log('jhg');
-          this.opened = true
-        }
+        // more() {
+        //   console.log('jhg');
+        //   this.opened = true
+        // }
       }
     }
 </script>

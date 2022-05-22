@@ -2,7 +2,7 @@
     <div class="flex flex-col w-full justify-center items-center">
          <Countrynav class="w-full flex"/>
         <div class="">
-            <CountryInfo />
+            <CountryInfo :time="time" :weather="main_weather"/>
         </div>
         <hr>
         <p class="text-lg font-bold">List of Cities in {{country.name}}</p>
@@ -28,6 +28,9 @@ import axios from 'axios'
             return {
                 country: {}, 
                 citiesInCountry: [],
+                main_weather: {},
+                timestamps: {},
+                time: ''
             }
         },
         mounted() {
@@ -45,6 +48,7 @@ import axios from 'axios'
                 this.$store.commit("setIsLoading", true)
 
                 const country_slug = this.$route.params.country_slug
+                this.getWeather(country_slug)
                 
                 await axios
                 .get(`/api/v1/country-tree/${country_slug}`)
@@ -74,8 +78,26 @@ import axios from 'axios'
                 
                 this.$store.commit("setIsLoading", false)
             },
+            getWeather(country){
+                const url = `https://api.openweathermap.org/data/2.5/weather?q=${country}&appid=660b7afb5ac016ad6131d30875ad3635`
+                axios.get(url).then(response => {
+                    this.main_weather = response.data.main
+
+                    const lat = response.data.coord.lat
+                    const lng = response.data.coord.lon
+                    this.getTime(lat, lng)
+
+                })
+            },
+            getTime(lat, lng){
+                const url = `http://api.geonames.org/timezoneJSON?lat=${lat}&lng=${lng}&username=dadakhon`
+                axios.get(url).then(response => {
+                    this.time = response.data.time
+                })
+            },
             getToCity(e) {
                 this.$router.push({name: 'City', params:{city_slug: e}})
+
             }
         }
 

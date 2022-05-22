@@ -3,8 +3,11 @@
     <div class="border-l-2 border-dashed flex flex-row"
     :style="{'margin-left': `${depth * 20}px`}"
     @click="isExpanded(node)">
-    <span v-if="hasChildren" class="type">{{expanded ? '&#9660;' : '&#9658;'}}</span>
-    <span v-else>&#9671;</span>
+    <span v-if="hasChildren" class="mt-2 cursor-pointer">
+         <bottom v-if="expanded"/>
+         <right v-else/>
+    </span>
+    <span v-else class="mt-2.5 mr-1"><circlet /></span>
     <h1 @click="getCountry(node.get_absolute_url)" class="text-lg font-bold">{{node.name}}</h1>
     </div>
     <TreeBrowser class=""
@@ -19,6 +22,10 @@
 </template>
 
 <script>
+import right from '../../assets/icons/nav/right.vue'
+import bottom from '../../assets/icons/nav/bottom.vue'
+import circlet from '../../assets/icons/nav/circle.vue'
+
 export default {
     name: 'TreeBrowser',
     props: {
@@ -27,6 +34,9 @@ export default {
             type: Number,
             default: 0
         }
+    },
+    components: {
+        right, bottom, circlet
     },
     data(){
         return {

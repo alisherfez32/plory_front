@@ -14,6 +14,7 @@ import City from '../views/City.vue'
 import Score from '../views/City/Score.vue'
 import Visit from '../views/City/Visit.vue'
 import Rent from '../views/City/Rent.vue'
+import Eat from '../views/City/Eat.vue'
 
 //for Common
 import Image from '../views/Common/Image.vue'
@@ -91,6 +92,11 @@ const routes = [
     path: '/image/:city_slug',
     name: 'Image',
     component: Image
+  },
+  {
+    path: '/eat/:city_slug',
+    name: 'Eat',
+    component: Eat
   },
 ]
 
