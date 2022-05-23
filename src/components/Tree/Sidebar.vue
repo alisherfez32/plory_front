@@ -21,6 +21,9 @@
 <script>
 import TreeBrowser from './TreeBrowser.vue'
 import Search from '../Search.vue'
+
+import axios from 'axios'
+
 export default {
     components: {
      TreeBrowser,
@@ -31,7 +34,7 @@ export default {
 		}
 	},
     mounted() {
-		this.$store.dispatch("getTree")
+		this.getTree()
     },
 	computed: {
 		root(){
@@ -39,19 +42,18 @@ export default {
 		}
 	},
 	methods: {
-	// async getTree() {
-    //     await axios
-    //       .get('/api/v1/country-tree')
-    //       .then(response => {
-    //         console.log(response);
-    //         this.root = response.data
-    //       })
-    //       .catch(error => {
-    //         console.log("ERROR", error)
-    //       })
-    //   }
+	async getTree() {
+        await axios
+          .get('/api/v1/country-tree')
+          .then(response => {
+            this.$store.commit("setRoot", response.data)
+          })
+          .catch(error => {
+            console.log("ERROR", error)
+          })
+         }      
 	}
-};
+}
 </script>
 
 <style>

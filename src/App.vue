@@ -22,6 +22,7 @@ import Footer from '@/components/footer/footer.vue'
 import Loader from '@/components/Spinner.vue'
 import Sidebar from '@/components/Tree/Sidebar.vue'
 import TreeLeft from '@/components/Tree/TreeLeft.vue'
+import axios from 'axios'
   export default {
     data(){
       return {
@@ -37,6 +38,7 @@ import TreeLeft from '@/components/Tree/TreeLeft.vue'
     beforeCreate() {
     },
     mounted() {
+      this.getTree()
     },
     computed: {
       isLoading() {
@@ -45,8 +47,6 @@ import TreeLeft from '@/components/Tree/TreeLeft.vue'
       isSlidebar(){
         return this.$store.state.isSlidebar
       },
-      isCity(){
-      }
     },
     methods: {
       Toast(){
@@ -55,6 +55,17 @@ import TreeLeft from '@/components/Tree/TreeLeft.vue'
         this.$toast.success('This is my favorite toasts plugin.')
         this.$toast.warning('This is my favorite toasts plugin.')
         this.$toast.error('This is my favorite toasts plugin.')
+      },
+      async getTree() {
+        await axios
+          .get('/api/v1/country-tree')
+          .then(response => {
+            this.$store.commit("setRoot", response.data)
+            console.log('any');
+          })
+          .catch(error => {
+            console.log("ERROR", error)
+          })
       }
     }
   }

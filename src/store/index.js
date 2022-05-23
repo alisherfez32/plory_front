@@ -1,5 +1,4 @@
 import { createStore } from 'vuex'
-import axios from 'axios'
 
 export default createStore({
   state: {
@@ -21,18 +20,6 @@ export default createStore({
     }
   },
   actions: {
-    async getTree({ commit, state }) {
-      if (!state.node.length) {
-        await axios
-          .get('/api/v1/country-tree')
-          .then(response => {
-            commit("setRoot", response.data)
-          })
-          .catch(error => {
-            console.log("ERROR", error)
-          })
-      }
-      }
   },
   modules: {
   }

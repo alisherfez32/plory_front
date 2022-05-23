@@ -6,6 +6,9 @@
 
 <script>
 import Currency from '../components/Currency.vue'
+
+import axios from 'axios'
+
   export default {
     name: 'Home',
     components: {
@@ -16,7 +19,7 @@ import Currency from '../components/Currency.vue'
       }
     },
     mounted() {
-      this.$store.dispatch("getTree")
+      this.getTree()
       this.$router.push("/indonesia")
     },
     created() {
@@ -24,8 +27,16 @@ import Currency from '../components/Currency.vue'
     computed: {
     },
     methods: {
-      goToItem(id){
-        
+      async getTree() {
+        await axios
+          .get('/api/v1/country-tree')
+          .then(response => {
+            this.$store.commit("setRoot", response.data)
+            console.log('aniagsdfi');
+          })
+          .catch(error => {
+            console.log("ERROR", error)
+          })
       }
     }
   }
