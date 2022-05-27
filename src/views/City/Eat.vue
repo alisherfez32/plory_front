@@ -1,6 +1,7 @@
 <template>
     <div class="flex flex-col w-full justify-center items-center">
         <Citynav class="flex w-full"/>
+        <p class="font-semibold md:w-3/5 m-1.5 text-center">The go to restaurants in Jakarta loved by locals and expats! With the majority of Muslims, you will not have a hard time finding Halal restaurant.</p>
         <div class="flex flex-wrap w-full justify-center items-center">
             <EatCp v-for="food in eats" :key="food.id" :node="food"
             />

@@ -8,7 +8,7 @@
       <div class="bg-gray-300 mr-3 md:mt-20 h-16 md:w-44 md:h-20 flex flex-row rounded-2xl p-1 justify-around items-center">
         <p class="font-black sm:text-lg text-2xl m-1">{{temp.toFixed(1)}}°C</p>
         <div class="text-xs flex flex-col justify-center m-0.5">
-          <p class="md:font-semibold">Humadity: {{weather.humidity}}%</p>
+          <p class="md:font-semibold">Humidity: {{weather.humidity}}%</p>
           <p class="md:font-semibold">Pressure: {{weather.pressure}}hPa</p>
         </div>
       </div>
@@ -26,7 +26,7 @@
             <p class="font-semibold">Bahasa Indonesia</p>
           </div>
           <div class="mt-6">
-            <p>Popluar foreign languages</p>
+            <p>Popular foreign languages</p>
             <p class="font-semibold">English, Chinese, Arabic</p>
           </div>
         </div>
@@ -49,7 +49,7 @@
             <p>International Arrival Airports</p>
             <div class="flex flex-col font-semibold">
               <p>Soekarno Hatta International Airport</p>
-              <p>Ngurah rai International Airport</p>
+              <p>NguRah rai International Airport</p>
             </div>
           </div>
         </div>
@@ -75,15 +75,16 @@
         <div class="flex flex-col">
           <div class="">
             <p>President</p>
-            <p class="font-semibold">Joko Wldodo</p>
+            <p class="font-semibold">Joko Widodo</p>
           </div>
           <div class="mt-6">
             <p>Capital City</p>
             <p class="font-semibold">Jakarta</p>
           </div>
           <div class="mt-6">
-            <p>Religien City</p>
+            <p>Religion City</p>
             <p class="font-semibold">Muslims 87%</p>
+            <p class="font-semibold">Christians 9.82%</p>
             <p class="font-semibold">Hindu 1.74%</p>
             <p class="font-semibold">Buddhist 0.72%</p>
             <p class="font-semibold">Others 0.72%</p>
@@ -113,7 +114,7 @@
         <div class="mr-2"><review /></div>
         <div class="flex flex-col">
           <div>
-            <p>Foreigner friendly name</p>
+            <p>Foreigner friendly</p>
             <p class="font-semibold">YES</p>
           </div>
         </div>

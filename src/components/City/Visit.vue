@@ -8,17 +8,17 @@
       <div class="flex-col">
           <div class="flex flex-row w-full justify-between">
               <p class="text-lg font-bold">{{node.name}}</p>
-              <p class="text-sm font-bold">$ {{node.entry_fee}}</p>
+              <p class="text-sm font-bold">${{node.entry_fee}}</p>
           </div>
           <div class="w-full">
               <p class="text-sm">{{node.description}}</p>
               <!-- <p class="text-sm">{{node.best_time_togo}}</p> -->
           </div>
           <div class="flex flex-row justify-between mt-2">
-              <p class="flex flex-row text-blue-300 text-lg underline">
+              <div class="flex flex-row text-gray-500 text-lg underline">
                   <maps class="mr-1"/>
-                  <a href="https://maps.google.com">On Map</a>
-               </p>
+                  <a :href="node.url_on_map">{{node.district}}</a>
+               </div>
           </div>
       </div>
 

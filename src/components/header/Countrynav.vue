@@ -26,7 +26,7 @@ import image from '../../assets/icons/nav/image.vue'
                 items: [
                   {style: 'none', icon: 'guide', id:'/', text: 'Guide', name: 'Country'},
                   {style: 'none', icon: 'food',id: 'food/', text: 'Cuisine', name: 'Food'},
-                  {style: 'none', icon: 'trans',id: 'transport/', text: 'Transportion', name: 'Transport'},
+                  {style: 'none', icon: 'trans',id: 'transport/', text: 'Transportation', name: 'Transport'},
                   {style: 'none', icon: 'apps',id: 'app-and-website/', text: 'Apps&Webs', name: 'AppsAndWebs'},
                   {style: 'none', icon: 'image',id: 'image/', text: 'Pictures', name: 'Images'},
                 // {id: 'language', name: 'Language'},

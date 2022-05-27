@@ -10,7 +10,7 @@
               $ {{node.price}} /person </p>
           </div>
           <div class="flex flex-row justify-between mt-2">
-            <p class="flex flex-row">
+            <p class="flex flex-row text-gray-500 ">
                 <maps />
                 <a class="underline ml-1 text-xl font-medium" :href="node.url">{{node.district}}</a>
             </p>

@@ -1,6 +1,9 @@
 <template>
     <div>
         <Citynav class="flex w-full"/>
+        <div  class="flex w-full justify-center items-center">
+            <p class="font-semibold md:w-3/5 m-1.5 text-center">List of things you have to do while in Jakarta! You can go to historic places or to new and modern sites to hang out. Tired of the city life? There are tiny islands 1 hour away from the North that are worth to visit.</p>
+        </div>
         <div class="flex flex-wrap w-full justify-center items-center">
             <Visit v-for="item in visits" :key="item.id" :node="item"/>
         </div>

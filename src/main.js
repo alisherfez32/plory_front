@@ -11,12 +11,13 @@ const options = {
     timeout: 2000
 }
 
-const dev = false
+const dev = true
 let url = "http://35.158.203.11"
 
 if (dev) {
     url = "http://127.0.0.1:8000"
 }
+
 import axios from 'axios'
 axios.defaults.baseURL = url
 

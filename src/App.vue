@@ -11,6 +11,7 @@
         <router-view />
       </div>
     </div>
+    <Model v-show="isImage"/>
     <!-- <Footer /> -->
   </div>
 </template>
@@ -22,6 +23,9 @@ import Footer from '@/components/footer/footer.vue'
 import Loader from '@/components/Spinner.vue'
 import Sidebar from '@/components/Tree/Sidebar.vue'
 import TreeLeft from '@/components/Tree/TreeLeft.vue'
+
+import Model from './components/ImageModel.vue'
+
 import axios from 'axios'
   export default {
     data(){
@@ -33,7 +37,8 @@ import axios from 'axios'
       Footer,
       Sidebar,
       TreeLeft,
-      Loader
+      Loader,
+      Model
     },
     beforeCreate() {
     },
@@ -46,6 +51,9 @@ import axios from 'axios'
       },
       isSlidebar(){
         return this.$store.state.isSlidebar
+      },
+      isImage(){
+        return this.$store.state.isImage
       },
     },
     methods: {
@@ -61,7 +69,7 @@ import axios from 'axios'
           .get('/api/v1/country-tree')
           .then(response => {
             this.$store.commit("setRoot", response.data)
-            console.log('any');
+            console.log(response.data);
           })
           .catch(error => {
             console.log("ERROR", error)

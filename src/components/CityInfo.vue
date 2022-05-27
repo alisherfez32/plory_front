@@ -4,7 +4,7 @@
             <div class="md:w-44 md:h-20 h-16 bg-gray-200 flex flex-row rounded-2xl p-1 m-1 justify-center items-center">
                 <p class="font-bold text-2xl m-1">{{temp.toFixed(1)}}°C</p>
                 <div class="text-xs flex flex-col justify-center m-0.5">
-                    <p class="md:font-semibold">Humadity: {{weather.humidity}}%</p>
+                    <p class="md:font-semibold">Humidity: {{weather.humidity}}%</p>
                     <p class="md:font-semibold">Pressure: {{weather.pressure}}hPa</p>
                 </div>
             </div>
@@ -74,7 +74,7 @@
                 <div class="flex flex-col">
                     <div class="">
                         <p>Governor</p>
-                        <p class="font-semibold">Joko Wldodo</p>
+                        <p class="font-semibold">Anies Baswedan</p>
                     </div>
                     <div class="mt-6">
                         <p>Population</p>
@@ -91,6 +91,9 @@
                         <div class="font-semibold">
                             <p>Central Jakarta</p>
                             <p>North Jakarta</p>
+                            <p>South Jakarta</p>
+                            <p>East Jakarta</p>
+                            <p>West Jakarta</p>
                         </div>               
                     </div>
             </div>
