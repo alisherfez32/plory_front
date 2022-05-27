@@ -13,6 +13,7 @@ const options = {
 
 const dev = false
 let url = "http://35.158.203.11"
+// let url = "http://olubolu.com"
 
 if (dev) {
     url = "http://127.0.0.1:8000"
