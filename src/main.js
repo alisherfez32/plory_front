@@ -11,7 +11,7 @@ const options = {
     timeout: 2000
 }
 
-const dev = true
+const dev = false
 let url = "http://35.158.203.11"
 // let url = "http://olubolu.com"
 
