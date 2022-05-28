@@ -13,7 +13,6 @@
               {{node.description}} ...
               </p>
           </div>
-          <p class="mb-2 text-xl font-bold">{{node.price}}$</p>
       </div>
     </div>
 </template>

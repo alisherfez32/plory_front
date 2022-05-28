@@ -22,7 +22,7 @@
                 {{Capitalize(key)}}
               </p>
               <p class="text-lg text-gray-900 font-medium">
-                ${{value}} 
+                IDR {{value}} 
               </p>
             </div>
           </div>
@@ -44,7 +44,7 @@
                 {{Capitalize(key)}}
               </p>
               <p class="text-lg text-gray-900 font-medium">
-                ${{value}} 
+                IDR {{value}} 
               </p>
             </div>
           </div>
@@ -66,7 +66,7 @@
                 {{Capitalize(key)}}
               </p>
               <p class="text-lg text-gray-900 font-medium">
-                ${{value}} 
+                IDR {{value}}
               </p>
             </div>
           </div>

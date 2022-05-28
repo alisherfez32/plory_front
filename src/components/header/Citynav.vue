@@ -3,8 +3,8 @@
          <div class="parent flex flex-col justify-center items-center md:px-6 sm:px-4 px-2 cursor-pointer font-medium text-sm hover:bg-gray-300 active:underline" 
          v-for="item in items" :key="item.id"
          @click="goToItem(item.name)">
-         <component :is="item.icon"></component>
-         <p :style="{textDecoration: item.style}" class="child">{{item.text}}</p>
+         <component :is="item.icon" :class="{'bg-gray-200 p-0.5': item.style}"></component>
+         <p :class="{'underline': item.style}" class="child">{{item.text}}</p>
         </div>
     </div>
 </template>
@@ -25,12 +25,12 @@ import eat from '../../assets/icons/nav/food.vue'
         data(){
             return {
                 items: [
-                  {style: 'none', text: 'Guide', icon: 'guide', id: '/', name: 'City'},
-                  {style: 'none', text: 'Cost of living', icon: 'cost', id: 'cost-of-living/', name: 'Cost Of Living'},
-                  {style: 'none', text: 'Eat', icon: 'eat', id: 'eat/', name: 'Eat'},
-                  {style: 'none', text: 'Stay', icon: 'rent', id: 'stay/', name: 'Stay'},
-                  {style: 'none', text: 'Experience', icon:'see', id: 'visit/', name: 'See'},
-                  {style: 'none', text: 'Photos', icon:'image', id: 'image/', name: 'Image'},
+                  {style: false, text: 'Guide', icon: 'guide', id: '/', name: 'City'},
+                  {style: false, text: 'Cost of living', icon: 'cost', id: 'cost-of-living/', name: 'Cost Of Living'},
+                  {style: false, text: 'Eat', icon: 'eat', id: 'eat/', name: 'Eat'},
+                  {style: false, text: 'Stay', icon: 'rent', id: 'stay/', name: 'Stay'},
+                  {style: false, text: 'Experience', icon:'see', id: 'visit/', name: 'See'},
+                  {style: false, text: 'Photos', icon:'image', id: 'image/', name: 'Image'},
                 //   {id: 'score/', name: 'Score'},
                 ]
             }
@@ -53,7 +53,7 @@ import eat from '../../assets/icons/nav/food.vue'
                 }
             },
             getFocus(e){
-                e.style = 'underline'
+                e.style = true
             }
         }
     }

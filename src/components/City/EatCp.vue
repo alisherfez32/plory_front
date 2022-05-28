@@ -5,10 +5,10 @@
               <img class="max-h-44 rounded-2xl transform hover:scale-105 transition duration-700 ease-out" :src="node.get_image" alt="Course">
           </figure>
           <p class="mt-3 text-2xl font-bold">{{node.name}}</p>
-           <div class="">
+           <!-- <div class="">
               <p class="max-h-16 font-semibold text-lg">
               $ {{node.price}} /person </p>
-          </div>
+          </div> -->
           <div class="flex flex-row justify-between mt-2">
             <p class="flex flex-row text-gray-500 ">
                 <maps />

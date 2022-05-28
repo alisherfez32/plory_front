@@ -4,11 +4,11 @@
         <div class="">
             <CountryInfo :time="time" :weather="main_weather"/>
         </div>
-        <hr>
+        <!-- <hr>
         <p class="text-lg font-bold">List of Cities in {{country.name}}</p>
         <div class="flex flex-wrap justify-center items-center w-full">
             <City v-for="city in citiesInCountry" :key="city.id" :node="city" @click="getToCity(city.citi_main_slug)"/>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -54,7 +54,7 @@ import axios from 'axios'
                 .get(`/api/v1/country-tree/${country_slug}`)
                 .then(response => {
                     this.country = response.data
-                    this.getCitiesOfCountry()
+                    // this.getCitiesOfCountry()
                 })
                 .catch(error => {
                     console.log(error)
@@ -64,20 +64,20 @@ import axios from 'axios'
                 document.title = this.country.name + ' | Plory '
                 
             },
-            async getCitiesOfCountry(){
-                this.$store.commit("setIsLoading", true)
+            // async getCitiesOfCountry(){
+            //     this.$store.commit("setIsLoading", true)
 
-                const country_name = this.country.get_absolute_url
+            //     const country_name = this.country.get_absolute_url
                 
-                await axios.get(`/api/v1/city-tree/detailed${country_name}/`).then(response => {
-                    this.citiesInCountry = response.data
-                })
-                .catch(error => {
-                    console.log(error)
-                })
+            //     await axios.get(`/api/v1/city-tree/detailed${country_name}/`).then(response => {
+            //         this.citiesInCountry = response.data
+            //     })
+            //     .catch(error => {
+            //         console.log(error)
+            //     })
                 
-                this.$store.commit("setIsLoading", false)
-            },
+            //     this.$store.commit("setIsLoading", false)
+            // },
             getWeather(country){
                 const url = `https://api.openweathermap.org/data/2.5/weather?q=${country}&appid=660b7afb5ac016ad6131d30875ad3635`
                 axios.get(url).then(response => {
@@ -90,7 +90,7 @@ import axios from 'axios'
                 })
             },
             getTime(lat, lng){
-                const url = `https://api.geonames.org/timezoneJSON?lat=${lat}&lng=${lng}&username=dadakhon`
+                const url = `http://api.geonames.org/timezoneJSON?lat=${lat}&lng=${lng}&username=dadakhon`
                 axios.get(url).then(response => {
                     this.time = response.data.time
                 })

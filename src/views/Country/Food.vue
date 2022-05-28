@@ -1,7 +1,6 @@
 <template>
     <div class="flex flex-col w-full justify-center items-center">
         <Countrynav class="flex w-full"/>
-        <h1>Foods</h1>
         <p class="font-semibold md:w-4/5 m-1.5 text-center">Indonesia might be famous for Indomie, but here are some foods that inspire the many flavor of it! Varying from spicy, salty, sweet or sour, Indonesian food offers rich taste and is a MUST try.</p>
         <div class="flex flex-wrap w-full justify-center items-center">
             <Food v-for="(food, index) in foods" :key="food.id" :node="food" :idx="index"

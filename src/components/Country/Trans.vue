@@ -5,15 +5,15 @@
               <p class="text-xl font-bold">{{node.name}}</p>
               <p class="bg-gray-200 p-1 rounded-xl text-sm">{{node.status}}</p>
           </div>
-          <figure class="flex justify-center w-full">
+          <figure class="flex justify-center w-full mb-2">
               <img class="max-h-44 rounded-2xl transform hover:scale-105 transition duration-700 ease-out" :src="node.get_image" alt="Course">
           </figure>
           
-          <div class="overflow-hidden">
+          <!-- <div class="overflow-hidden">
               <p class="max-h-16 text-sm overflow-hidden">
               {{node.description}} ...
               </p>
-          </div>
+          </div> -->
           <!-- <a class="my-2 text-sm font-bold" :href="node.book">You can book here</a> -->
       </div>
     </div>

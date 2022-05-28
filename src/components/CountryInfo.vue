@@ -49,7 +49,7 @@
             <p>International Arrival Airports</p>
             <div class="flex flex-col font-semibold">
               <p>Soekarno Hatta International Airport</p>
-              <p>NguRah rai International Airport</p>
+              <p>Ngurah Rai International Airport</p>
             </div>
           </div>
         </div>

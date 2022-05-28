@@ -3,8 +3,8 @@
          <div class="flex flex-col justify-center items-center md:px-6 sm:px-4 px-2 cursor-pointer font-medium text-sm hover:bg-gray-300 active:underline" 
          v-for="item in items" :key="item.id"
          @click="goToItem(item.name)">
-         <component :is="item.icon"></component>
-         <p :style="{textDecoration: item.style}">{{item.text}}</p>
+         <component :is="item.icon" :class="{'bg-gray-200 p-0.5': item.style}"></component>
+         <p :class="{'underline': item.style}">{{item.text}}</p>
         </div>
     </div>
 </template>
@@ -24,11 +24,11 @@ import image from '../../assets/icons/nav/image.vue'
         data(){
             return {
                 items: [
-                  {style: 'none', icon: 'guide', id:'/', text: 'Guide', name: 'Country'},
-                  {style: 'none', icon: 'food',id: 'food/', text: 'Cuisine', name: 'Food'},
-                  {style: 'none', icon: 'trans',id: 'transport/', text: 'Transportation', name: 'Transport'},
-                  {style: 'none', icon: 'apps',id: 'app-and-website/', text: 'Apps&Webs', name: 'AppsAndWebs'},
-                  {style: 'none', icon: 'image',id: 'image/', text: 'Pictures', name: 'Images'},
+                  {style: false, icon: 'guide', id:'/', text: 'Guide', name: 'Country'},
+                  {style: false, icon: 'food',id: 'food/', text: 'Cuisine', name: 'Food'},
+                  {style: false, icon: 'trans',id: 'transport/', text: 'Transportation', name: 'Transport'},
+                  {style: false, icon: 'apps',id: 'app-and-website/', text: 'Apps&Webs', name: 'AppsAndWebs'},
+                  {style: false, icon: 'image',id: 'image/', text: 'Pictures', name: 'Images'},
                 // {id: 'language', name: 'Language'},
                 ]
             }
@@ -48,7 +48,7 @@ import image from '../../assets/icons/nav/image.vue'
                 this.$router.push({name: name, params: {country_slug: country_slug }})
             },
             getFocus(e){
-                e.style = 'underline'
+                e.style = true
             }
         },
         computed: {

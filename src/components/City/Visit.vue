@@ -8,7 +8,7 @@
       <div class="flex-col">
           <div class="flex flex-row w-full justify-between">
               <p class="text-lg font-bold">{{node.name}}</p>
-              <p class="text-sm font-bold">${{node.entry_fee}}</p>
+              <p class="text-sm font-bold">IDR {{Entryfee(node.entry_fee)}}</p>
           </div>
           <div class="w-full">
               <p class="text-sm">{{node.description}}</p>
@@ -34,6 +34,16 @@ import maps from '../../assets/icons/Info/onmap.vue'
             maps
         },
         mounted() {
+        },
+        methods: {
+            Entryfee(e){
+                console.log(e);
+                if(e == 0){
+                    return 'FREE'
+                } else{
+                    return e
+                }
+            }
         }
     }
 </script>

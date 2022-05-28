@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col w-full justify-center items-center">
         <Countrynav class="flex w-full"/>
-        <p class="font-bold text-lg text-center">{{why}}</p>
+        <p class="font-bold text-lg text-center"></p>
         <hr class="h-6">
         <div class="flex flex-wrap w-full justify-center items-center">
             <AppsAndWebsites :node="app" v-for="app in apps_and_websites" :key="app.id"/>

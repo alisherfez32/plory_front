@@ -7,9 +7,9 @@
             <p class="font-pop font-bold text-2xl">{{node.name}}</p>
             <p class="font-pop font-semibold text-lg h-20 overflow-hidden">{{node.description}} ...</p>
             <div class="flex flex-row justify-evenly items-center my-2">
-                <p class="border-2 border-[#484343] py-1 px-5 rounded-xl"><a :href="node.ios_url"><ios /></a></p>
-                <p class="border-2 border-[#484343] py-1 px-5 rounded-xl"><a :href="node.url">Url</a></p>
-                <p class="border-2 border-[#484343] px-5 py-1 rounded-xl"><a :href="node.android_url"><android /></a></p>
+                <p class="border-2 border-[#484343] py-1 px-5 rounded-xl" v-if="node.ios_url.length"><a target="_self" :href="node.ios_url"><ios /></a></p>
+                <p class="border-2 border-[#484343] py-1 px-5 rounded-xl" v-if="node.url.length"><a target="_self" :href="node.url">Url</a></p>
+                <p class="border-2 border-[#484343] px-5 py-1 rounded-xl" v-if="node.android_url.length"><a target="_self" :href="node.android_url"><android /></a></p>
             </div>
         </div>
     </div>
