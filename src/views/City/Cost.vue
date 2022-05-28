@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col w-full justify-center items-center">
       <Citynav class="flex w-full"/>
-        <p class="font-semibold md:w-3/5 m-1.5 text-center">General neccessities and prices you will find in Jakarta.</p>
+        <p class="font-semibold md:w-3/5 m-1.5 text-center mb-2">General neccessities and prices you will find in Jakarta.</p>
         <!-- <div class="flex w-full justify-center items-center">
             <Costs :node="cost" />
         </div> -->
@@ -134,6 +134,7 @@ import axios from 'axios';
               let str1 = str.charAt(0).toUpperCase() + str.slice(1) 
               return str1.replace(/_+/g, ' ')
             },
+            
         },
         computed: {
           EatingOut(){

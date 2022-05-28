@@ -8,10 +8,10 @@
       <div class="flex flex-col justify-center items-center">
           <p class="">✅English availble</p>
           <div class="flex flex-wrap w-4/5 mt-8 justify-center items-center">
-              <p class="bg-gray-200 px-3  my-2 mx-1.5 broder-gray-2 rounded-xl h-6 underline transform transition-all duration-200 ease hover:-translate-y-1 hover:shadow-xl shadow-md"><a class="hovers" :href="node.hotel">Hotel</a></p>
+              <p v-if="node.hotel.length" class="bg-gray-200 px-3  my-2 mx-1.5 broder-gray-2 rounded-xl h-6 underline transform transition-all duration-200 ease hover:-translate-y-1 hover:shadow-xl shadow-md"><a class="hovers" :href="node.hotel">Hotel</a></p>
               <p class="bg-gray-200 px-3  my-2 mx-1.5 broder-gray-2 rounded-xl h-6 underline transform transition-all duration-200 ease hover:-translate-y-1 hover:shadow-xl shadow-md"><a class="hovers" :href="node.hotel">Guest House</a></p>
-              <p class="bg-gray-200 px-3  my-2 mx-1.5 broder-gray-2 rounded-xl h-6 underline transform transition-all duration-200 ease hover:-translate-y-1 hover:shadow-xl shadow-md"><a class="hovers" :href="node.apartment">Apartment</a></p>
-              <p class="bg-gray-200 px-3  my-2 mx-1.5 broder-gray-2 rounded-xl h-6 underline transform transition-all duration-200 ease hover:-translate-y-1 hover:shadow-xl shadow-md"><a class="hovers" :href="node.house">House</a></p>
+              <p v-if="node.apartment.length" class="bg-gray-200 px-3  my-2 mx-1.5 broder-gray-2 rounded-xl h-6 underline transform transition-all duration-200 ease hover:-translate-y-1 hover:shadow-xl shadow-md"><a class="hovers" :href="node.apartment">Apartment</a></p>
+              <p v-if="node.house.length" class="bg-gray-200 px-3  my-2 mx-1.5 broder-gray-2 rounded-xl h-6 underline transform transition-all duration-200 ease hover:-translate-y-1 hover:shadow-xl shadow-md"><a class="hovers" :href="node.house">House</a></p>
           </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col w-full justify-center items-center">
         <Countrynav class="flex w-full"/>
-        <p class="font-bold text-lg text-center"></p>
+        <p class="font-semibold md:w-4/5 m-1.5 text-center">Useful apps you need to download before coming to Indonesia. Hint: e-wallet, food delivery & ride-hailing will be your best friend.</p>
         <hr class="h-6">
         <div class="flex flex-wrap w-full justify-center items-center">
             <AppsAndWebsites :node="app" v-for="app in apps_and_websites" :key="app.id"/>

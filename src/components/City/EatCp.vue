@@ -4,7 +4,7 @@
           <figure class="flex justify-center w-full">
               <img class="max-h-44 rounded-2xl transform hover:scale-105 transition duration-700 ease-out" :src="node.get_image" alt="Course">
           </figure>
-          <p class="mt-3 text-2xl font-bold">{{node.name}}</p>
+          <p class="mt-3 text-2xl font-semibold">{{node.name}}</p>
            <!-- <div class="">
               <p class="max-h-16 font-semibold text-lg">
               $ {{node.price}} /person </p>

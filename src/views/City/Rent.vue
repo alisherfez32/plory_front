@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col w-full justify-center items-center">
         <Citynav class="flex w-full"/>
-        <p class="font-semibold md:w-3/5 m-1.5 text-center">We’ve gathered the most commonly used platform to book / rent places to stay in Indonesia. Options are ranging from daily, monthly to yearly.</p>
+        <p class="font-semibold md:w-3/5 m-1.5 text-center mb-2">We’ve gathered the most commonly used platform to book / rent places to stay in Indonesia. Options are ranging from daily, monthly to yearly.</p>
         <div class="flex flex-wrap justify-center items-center w-full">
             <Rents v-for="rents in rent" :node="rents" :key="rents.id"/>
         </div>
