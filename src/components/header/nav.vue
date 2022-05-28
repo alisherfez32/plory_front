@@ -13,8 +13,8 @@
         </div>
         <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
           <div class="flex-shrink-0 flex items-center cursor-pointer">
-            <img class="block lg:hidden h-10 w-auto" src="" alt="Logo" />
-            <img class="hidden lg:block h-10 w-auto" src="" alt="LOGO" />
+            <img class="block lg:hidden h-10 w-auto" src="../../assets/images/logo.png" alt="Logo" />
+            <img class="hidden lg:block h-10 w-auto" src="../../assets/images/logo.png" alt="LOGO" />
           </div>
           <div class="hidden sm:block sm:ml-6">
             <Search />

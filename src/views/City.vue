@@ -73,6 +73,7 @@ import axios from 'axios'
                 })
             },
             getTime(lat, lng){
+                console.log(lat, lng);
                 const url = `http://api.geonames.org/timezoneJSON?lat=${lat}&lng=${lng}&username=dadakhon`
                 axios.get(url).then(response => {
                     this.time = response.data.time

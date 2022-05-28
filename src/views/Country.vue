@@ -83,8 +83,11 @@ import axios from 'axios'
                 axios.get(url).then(response => {
                     this.main_weather = response.data.main
 
-                    const lat = response.data.coord.lat
-                    const lng = response.data.coord.lon
+                    // const lat = response.data.coord.lat
+                    // const lng = response.data.coord.lon
+
+                    const lat = -6.2146
+                    const lng = 106.8451
                     this.getTime(lat, lng)
 
                 })
