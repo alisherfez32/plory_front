@@ -20,7 +20,7 @@ import axios from 'axios'
     },
     mounted() {
       this.getTree()
-      // this.$router.push("/indonesia")
+      this.$router.push("/indonesia")
     },
     created() {
     },
