@@ -44,6 +44,8 @@ import axios from 'axios'
     },
     mounted() {
       this.getTree()
+
+      document.title = 'Stepbook'
     },
     computed: {
       isLoading() {

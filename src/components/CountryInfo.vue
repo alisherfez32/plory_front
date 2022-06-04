@@ -1,12 +1,12 @@
 <template>
   <div class="flex md:flex-row flex-col mt-4 m-1 mb-10">
     <div class="flex md:flex-col lg:mr-28 md:mr-20 flex-row md:mb-0 mb-8">
-      <div class="flex flex-row h-16 md:w-44 w-24 mr-4 md:mr-0">
-        <id_flag class="w-16"/>
-        <p class="font-bold md:text-xl text-lg ">Selamat Datang</p> 
+      <div class="flex flex-row h-16 md:w-44 w-24 sm:mr-4">
+        <id_flag class="md:w-16 w-12"/>
+        <p class="font-bold md:text-xl sm:text-lg text-sm">Selamat Datang</p> 
       </div>
-      <div class="bg-gray-300 mr-3 md:mt-20 h-16 md:w-44 md:h-20 flex flex-row rounded-2xl p-1 justify-around items-center">
-        <p class="font-black sm:text-lg text-2xl m-1">{{temp.toFixed(1)}}°C</p>
+      <div class=" bg-gray-300 p-1 sm:mr-3 mr-1.5 md:mt-20 h-16 md:w-44 md:h-20 flex flex-row rounded-2xl justify-around items-center">
+        <p class=" font-black text-sm sm:text-2xl">{{temp.toFixed(1)}}°C</p>
         <div class="text-xs flex flex-col justify-center m-0.5">
           <p class="md:font-semibold">Humidity: {{weather.humidity}}%</p>
           <p class="md:font-semibold">Pressure: {{weather.pressure}}hPa</p>
@@ -17,7 +17,7 @@
         <p>{{date}}</p>
       </div>
     </div>
-    <div class="md:ml-20 sm:ml-10 flex flex-col">
+    <div class="md:ml-20 sm:ml-10 flex flex-col m-1">
       <div class="flex flex-row">
         <div class="mr-2"><book /></div>
         <div class="flex flex-col">
@@ -168,4 +168,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.isSmall{
+  max-width: 400px;
+}
+
+</style>

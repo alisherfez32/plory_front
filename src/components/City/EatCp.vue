@@ -1,5 +1,5 @@
 <template>
-    <div class="rounded-2xl px-5 m-1 cursor-pointer transform transition-all duration-200 ease hover:-translate-y-1 shadow-xl w-72 h-72">
+    <div class="rounded-2xl px-5 m-1 my-2 cursor-pointer transform transition-all duration-200 ease hover:-translate-y-1 shadow-xl w-72 h-72">
       <div class="">
           <figure class="flex justify-center w-full">
               <img class="max-h-44 rounded-2xl transform hover:scale-105 transition duration-700 ease-out" :src="node.get_image" alt="Course">

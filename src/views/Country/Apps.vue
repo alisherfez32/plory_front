@@ -4,7 +4,7 @@
         <p class="font-semibold md:w-4/5 m-1.5 text-center">Useful apps you need to download before coming to Indonesia. Hint: e-wallet, food delivery & ride-hailing will be your best friend.</p>
         <hr class="h-6">
         <div class="flex flex-wrap w-full justify-center items-center">
-            <AppsAndWebsites :node="app" v-for="app in apps_and_websites" :key="app.id"/>
+            <AppsAndWebsites :node="apps" v-for="apps in apps_and_websites" :key="apps.id"/>
         </div>
     </div>
     
@@ -23,8 +23,7 @@ import axios from 'axios';
         },
         data(){
             return {
-                app: {
-                },
+                app: {},
                 why: '',
                 apps_and_websites: []
             }
@@ -39,8 +38,7 @@ import axios from 'axios';
                 const country_slug = this.$route.params.country_slug
                 
                 await axios.get(`/api/v1/apps/country/${country_slug}/`).then(response => {
-                    this.app = response.data
-                    this.Apps()
+                    this.Apps(response.data)
                 })
                 .catch(error => {
                     console.log(error)
@@ -50,14 +48,15 @@ import axios from 'axios';
                 
                 document.title = 'Apps | ' + country_slug
             },
-            Apps(){
-                let has = Object.keys(this.app).length
-                if(has > 0){
-                    this.app.forEach(el => {
+            Apps(obj){
+                // console.log('obj', obj);
+                // let has = Object.keys(obj)
+                // if(has > 0){
+                    obj.forEach(el => {
                     this.apps_and_websites = el.apps_and_websites
-                    this.why = el.apps_for_what
+                    // this.why = el.apps_for_what
                 }) 
-                }
+                // }
             }
 
         },

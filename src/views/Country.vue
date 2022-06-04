@@ -54,6 +54,7 @@ import axios from 'axios'
                 .get(`/api/v1/country-tree/${country_slug}`)
                 .then(response => {
                     this.country = response.data
+                    document.title = response.data.name + ' | Stepbook '
                     // this.getCitiesOfCountry()
                 })
                 .catch(error => {
@@ -61,7 +62,7 @@ import axios from 'axios'
                 })
                 
                 this.$store.commit("setIsLoading", false)
-                document.title = this.country.name + ' | Plory '
+                
                 
             },
             // async getCitiesOfCountry(){

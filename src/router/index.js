@@ -55,7 +55,7 @@ const routes = [
     component: City
   }, 
   {
-    path: '/food/:country_slug',
+    path: '/cuisine/:country_slug',
     name: 'Food',
     component: Food
   },
@@ -66,7 +66,7 @@ const routes = [
   },
   {
     path: '/app-and-website/:country_slug',
-    name: 'AppsAndWebs',
+    name: 'Webs',
     component: App
   },
   {
@@ -80,7 +80,7 @@ const routes = [
     component: Score
   },
   {
-    path: '/visit/:city_slug',
+    path: '/experience/:city_slug',
     name: 'See',
     component: Visit
   },
@@ -90,12 +90,12 @@ const routes = [
     component: Rent
   },
   {
-    path: '/image/:country_slug',
+    path: '/country-image/:country_slug',
     name: 'Images',
     component: Image
   },
   {
-    path: '/image/:city_slug',
+    path: '/city-image/:city_slug',
     name: 'Image',
     component: Image
   },

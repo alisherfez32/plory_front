@@ -20,7 +20,7 @@ import axios from 'axios'
     },
     mounted() {
       this.getTree()
-      this.$router.push("/indonesia")
+      // this.$router.push("/indonesia")
     },
     created() {
     },
@@ -32,7 +32,8 @@ import axios from 'axios'
           .get('/api/v1/country-tree')
           .then(response => {
             this.$store.commit("setRoot", response.data)
-            console.log('aniagsdfi');
+            
+            document.title = 'Stepbook'
           })
           .catch(error => {
             console.log("ERROR", error)

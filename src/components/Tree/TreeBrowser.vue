@@ -2,12 +2,12 @@
 <div class="flex flex-col">
     <div class="border-l-2 border-dashed flex flex-row"
     :style="{'margin-left': `${depth * 20}px`}"
-    @click="isExpanded(node)">
-    <span v-if="hasChildren" class="mt-2 cursor-pointer">
+    >
+    <span  v-if="hasChildren" class="mt-2 cursor-pointer" @click="isExpanded()">
          <bottom v-if="expanded"/>
          <right v-else/>
     </span>
-    <span v-else class="mt-2.5 mr-1"><circlet /></span>
+    <span v-else class="mt-2.5 mr-1" ><circlet /></span>
     <h1 @click="getCountry(node.get_absolute_url)" class="text-lg font-bold">{{node.name}}</h1>
     </div>
     <TreeBrowser class=""
@@ -40,7 +40,7 @@ export default {
     },
     data(){
         return {
-            expanded: false,
+            expanded: true,
         }
     },
     mounted() {
@@ -48,6 +48,7 @@ export default {
     methods:{
         getCountry(e){
             if(this.hasChildren) {
+              console.log(e)
               this.$router.push(e)
             }
         },

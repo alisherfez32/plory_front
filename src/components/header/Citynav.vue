@@ -30,7 +30,7 @@ import eat from '../../assets/icons/nav/food.vue'
                   {style: false, text: 'Eat', icon: 'eat', id: 'eat/', name: 'Eat'},
                   {style: false, text: 'Stay', icon: 'rent', id: 'stay/', name: 'Stay'},
                   {style: false, text: 'Experience', icon:'see', id: 'visit/', name: 'See'},
-                  {style: false, text: 'Photos', icon:'image', id: 'image/', name: 'Image'},
+                  {style: false, text: 'Pictures', icon:'image', id: 'image/', name: 'Image'},
                 //   {id: 'score/', name: 'Score'},
                 ]
             }
@@ -47,7 +47,7 @@ import eat from '../../assets/icons/nav/food.vue'
             goToItem(name){
                 const city_slug = this.$route.params.city_slug
                 if(name==='City'){
-                    this.$router.push({name: name, params: {country_slug: 'c', city_slug: city_slug }})
+                    this.$router.push({name: name, params: {country_slug: 'guide', city_slug: city_slug }})
                 } else{
                 this.$router.push({name: name, params: {city_slug: city_slug }})
                 }

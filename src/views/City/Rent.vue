@@ -41,7 +41,7 @@ import axios from 'axios';
                 
                 this.$store.commit("setIsLoading", false)
                 
-                document.title = 'Rents | ' + city_slug
+                document.title = 'Stay | ' + city_slug
 
             }
         }

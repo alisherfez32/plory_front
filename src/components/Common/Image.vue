@@ -17,7 +17,7 @@
 
 <script>
     export default {
-        name: 'Images',
+        name: 'Image',
         props: {
             node: Object,
         },

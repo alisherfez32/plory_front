@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col w-full md:ml-10 ml-4">
-        <p>Results is for query: "{{this.query}}"</p>
+        <p class="font-bold text-lg">Results is for query: "{{this.query}}"</p>
         <div class="flex flex-col">
             <p class="font-bold text-lg" v-if="countries.length">📍Countries: </p>
             <div>
@@ -61,6 +61,11 @@
             </div>
 
         </div>
+        <div class="flex justify-center items-center flex-col mt-12"
+        v-show="!this.countries.length && !this.cities.length && !this.costs.length && !this.foods.length && !this.rents.length && !this.transports.length && !this.visits.length">
+        <p class="text-[#3E4842] font-semibold text-lg mb-10">There’s nothing yet here, we’ll let you know once it’s ready!</p>
+        <img src="../assets/images/empty_search.png" alt="">
+        </div>
     </div>
 </template>
 
@@ -83,7 +88,6 @@ import Visit from '../components/City/Visit.vue'
         },
         data(){
             return {
-                search: [],
                 query: '',
                 countries: [],
                 cities: [],
@@ -94,10 +98,11 @@ import Visit from '../components/City/Visit.vue'
                 // scores: [],
                 transports: [],
                 visits: [],
+                isEmpty: false,
             }
         },
         mounted() {
-            document.title = "Search | Plory"
+            document.title = "Search | Stepbook"
 
             let url = window.location.search.substring(1)
             let params = new URLSearchParams(url)
@@ -153,8 +158,14 @@ import Visit from '../components/City/Visit.vue'
             getCost(e){
                 // console.log(e);
                 this.$router.push({name: 'Cost Of Living', params:{city_slug: e}})
-            }
+            },
         },
+        computed: {
+            isEmpty(){
+            const isEmpty = this.countries.length && this.cities.length && this.costs.length && this.foods.length && this.rents.length && this.transports.length && this.visits.length
+            console.log('is', isEmpty);
+            }
+        }
     }
 </script>
 

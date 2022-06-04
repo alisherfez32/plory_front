@@ -1,9 +1,9 @@
 <template>
     <div class="justify-center items-center">
-        <Countrynav class="flex w-full" v-if="isCountry"/>
-        <Citynav class="flex w-full" v-else/>
+        <Countrynav class="flex w-full" v-show="isCountry"/>
+        <Citynav class="flex w-full" v-show="!isCountry"/>
         <div class="flex flex-wrap justify-center items-center">
-            <Image 
+            <ImageCt 
             v-for="image in images" :key="image.id" :node="image"
             />
             <!-- <div class="">
@@ -31,7 +31,7 @@ import Countrynav from '../../components/header/Countrynav.vue'
 // import { Carousel, Pagination, Slide, Navigation } from 'vue3-carousel';
 // import 'vue3-carousel/dist/carousel.css';
 
-import Image from '../../components/Common/Image.vue'
+import ImageCt from '../../components/Common/Image.vue'
 import Swiper from '../../components/Swiper.vue'
 import axios from 'axios'
 
@@ -40,7 +40,7 @@ import axios from 'axios'
         components: {
             Citynav, 
             Countrynav,
-            Image,
+            ImageCt,
             Swiper,
             // Carousel, Pagination, Slide, Navigation
         },
@@ -58,16 +58,24 @@ import axios from 'axios'
                 this.$store.commit("setIsLoading", true)
                 
 
-                const country_slug = this.$route.params.country_slug
-                const city_slug = this.$route.params.city_slug
+                // this.$route.params.country_slug
+                // const city_slug = this.$route.params.city_slug
 
                 let url = ''
 
-                if(city_slug){
-                    url = `/api/v1/images/city/${city_slug}/`
+                if(this.$route.params.city_slug){
                     this.isCountry = false
+                    const city_slug = this.$route.params.city_slug
+                    document.title = 'Pictures | ' + city_slug
+                    console.log('City', city_slug);
+
+                    url = `/api/v1/images/city/${city_slug}/`
                 } else {
                     this.isCountry = true
+                    const country_slug = this.$route.params.country_slug
+                    document.title = 'Pictures | ' + country_slug
+                    console.log('Country',country_slug);
+                    
                     url = `/api/v1/images/${country_slug}/`
                 }
                 
@@ -79,8 +87,7 @@ import axios from 'axios'
                 })
                 
                 this.$store.commit("setIsLoading", false)
-                
-                document.title = 'Score | ' + city_slug
+            
 
             }
         }

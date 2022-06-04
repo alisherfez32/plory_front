@@ -1,11 +1,11 @@
 <template>
 	<div>
 		<!--Sidebar with Dimmer -->
-		<div class="flex absolute h-screen">
+		<div class="flex absolute h-screen z-50">
 			<!-- Sidebar -->
 			<div class="flex">
 				<!-- Sidebar Content -->
-				<div ref="content" class="transition-all duration-700 bg-gray-200 overflow-hidden">
+				<div class="transition-all duration-700 bg-gray-200 overflow-hidden">
 					<Search />
 					<div class="w-64 font-bold text-xl">
                         <TreeBrowser v-for="root in root" :key="root.name"

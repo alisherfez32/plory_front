@@ -43,7 +43,7 @@ import axios from 'axios'
                 
                 this.$store.commit("setIsLoading", false)
                 
-                document.title = 'Foods | ' + city_slug
+                document.title = 'Eat | ' + city_slug
             }
         }
     }

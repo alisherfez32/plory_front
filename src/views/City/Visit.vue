@@ -45,7 +45,7 @@ import axios from 'axios';
                 
                 this.$store.commit("setIsLoading", false)
                 
-                document.title = 'See | ' + city_slug
+                document.title = 'Experience | ' + city_slug
 
             }
         }

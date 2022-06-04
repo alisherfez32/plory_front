@@ -13,13 +13,13 @@
 <script>
 import Citynav from '@/components/header/Citynav.vue'
 import InfoCity from '../components/CityInfo.vue'
-import CityPic from '../components/City/index.vue'
+// import CityPic from '../components/City/index.vue'
 
 import axios from 'axios'
     export default {
         name: 'City',
         components: {
-            Citynav, InfoCity, CityPic
+            Citynav, InfoCity
         },
         data() {
             return {
@@ -51,6 +51,7 @@ import axios from 'axios'
                 .get(`/api/v1/city-tree/detailed/info/${city_slug}`)
                 .then(response => {
                     this.city = response.data
+                    document.title = this.city.name + ' | Stepbook '
 
                 })
                 .catch(error => {
@@ -58,8 +59,6 @@ import axios from 'axios'
                 })
                 
                 this.$store.commit("setIsLoading", false)
-                document.title = this.city.name + ' | Plory '
-                
             },
             getWeather(city){
                 const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=660b7afb5ac016ad6131d30875ad3635`
