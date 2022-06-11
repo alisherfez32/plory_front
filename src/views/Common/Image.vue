@@ -32,7 +32,7 @@ import Countrynav from '../../components/header/Countrynav.vue'
 // import 'vue3-carousel/dist/carousel.css';
 
 import ImageCt from '../../components/Common/Image.vue'
-import Swiper from '../../components/Swiper.vue'
+// import Swiper from '../../components/Tools/Swiper.vue'
 import axios from 'axios'
 
     export default {
@@ -41,7 +41,7 @@ import axios from 'axios'
             Citynav, 
             Countrynav,
             ImageCt,
-            Swiper,
+            // Swiper,
             // Carousel, Pagination, Slide, Navigation
         },
         data(){
@@ -66,8 +66,6 @@ import axios from 'axios'
                 if(this.$route.params.city_slug){
                     this.isCountry = false
                     const city_slug = this.$route.params.city_slug
-                    document.title = 'Pictures | ' + city_slug
-                    console.log('City', city_slug);
 
                     url = `/api/v1/images/city/${city_slug}/`
                 } else {

@@ -118,8 +118,6 @@ import axios from 'axios';
                 
                 this.$store.commit("setIsLoading", false)
                 
-                document.title = 'Cost | ' + city_slug
-
             },
             less() {
                 this.isOpen = !this.isOpen

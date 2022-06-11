@@ -43,8 +43,6 @@ import axios from 'axios';
                 
                 this.$store.commit("setIsLoading", false)
                 
-                document.title = 'Transports | ' + country_slug
-
             }
         }
     }

@@ -46,7 +46,6 @@ import axios from 'axios';
                 
                 this.$store.commit("setIsLoading", false)
                 
-                document.title = 'Apps | ' + country_slug
             },
             Apps(obj){
                 // console.log('obj', obj);

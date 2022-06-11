@@ -1,5 +1,5 @@
 <template>
-    <div class="rounded-2xl px-3 m-1 cursor-pointer transform transition-all duration-200 ease hover:-translate-y-1 shadow-xl w-72 h-80">
+    <div class="rounded-2xl px-3 m-1 cursor-pointer transform transition-all duration-200 ease hover:-translate-y-1 shadow-md w-72 h-80">
       <div class="">
           <div class="px-4 my-2 w-full flex flex-row justify-between">
               <p class="my-2 text-xl font-bold">{{node.name}}</p>

@@ -1,6 +1,7 @@
 <template>
     <div class="flex md:flex-row flex-col m-1 justify-center">
-        <div class="flex md:flex-col lg:mr-28 md:mr-20 md:mb-0 mb-8 flex-row items-center md:justify-start justify-center">
+        <div
+            class="flex md:flex-col lg:mr-28 md:mr-20 md:mb-0 mb-8 flex-row items-center md:justify-start justify-center">
             <div class="md:w-44 md:h-20 h-16 bg-gray-200 flex flex-row rounded-2xl p-1 m-1 justify-center items-center">
                 <p class="font-bold text-2xl m-1">{{temp.toFixed(1)}}°C</p>
                 <div class="text-xs flex flex-col justify-center m-0.5">
@@ -8,18 +9,21 @@
                     <p class="md:font-semibold">Pressure: {{weather.pressure}}hPa</p>
                 </div>
             </div>
-            <div class="md:mt-20 text-center md:h-20 h-16 md:w-44 w-32 flex flex-col rounded-xl justify-center items-center font-bold bg-gray-300">
+            <div
+                class="md:mt-20 text-center md:h-20 h-16 md:w-44 w-32 flex flex-col rounded-xl justify-center items-center font-bold bg-gray-300">
                 <p class="uppercase">{{time}}</p>
                 <p>{{date}}</p>
             </div>
         </div>
         <div class="md:ml-20 sm:ml-10 flex flex-col">
             <div class="flex flex-row">
-                <div class="mr-2"><smile /></div>
+                <div class="mr-2">
+                    <smile />
+                </div>
                 <div class="flex flex-col">
                     <div class="">
                         <p class="">Cost of living / month</p>
-                        <p class="font-semibold">$713/month</p>
+                        <p class="font-semibold">${{node.cost_of_living}}/month</p>
                     </div>
                     <div class="mt-6">
                         <p>Internet speed</p>
@@ -28,103 +32,107 @@
                     </div>
                     <div class="mt-6">
                         <p>Free wifi</p>
-                        <p class="font-semibold">Easy to find</p>
+                        <p class="font-semibold">{{ node.free_wi_fi}}</p>
                     </div>
                 </div>
                 <div class="flex flex-row sm:ml-6 ml-4">
-                    <div class="mr-2"><review /></div>
+                    <div class="mr-2">
+                        <review />
+                    </div>
                     <div class="flex flex-col ">
                         <div class="">
                             <p>Foreigner friendly</p>
-                            <p class="font-semibold">YES</p>
+                            <p class="font-semibold">{{ node.foreign_friendly}}</p>
                         </div>
                         <div class="mt-6">
                             <p>English speaking</p>
-                            <p class="font-semibold">GOOD</p>
+                            <p class="font-semibold">{{ node.english_speaking }}</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="flex flex-row mt-10">
-                <div class="h-full mr-2"><airplane /></div>
+                <div class="h-full mr-2">
+                    <airplane />
+                </div>
 
                 <div class="flex flex-col">
                     <div>
                         <p>Airports</p>
                         <div class="flex flex-col font-semibold">
-                            <p>Soekarno Hatta International Airport</p>
+                            <p v-for="value in node.airports" :key="value.id">{{ value.name }}</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="flex flex-row sm:ml-6 ml-4">
-                <div class="h-full mr-2"><crime /></div>
-                <div class="flex flex-col">
-                    <div class="">
-                        <p>Crime rate</p>
-                        <p class="font-semibold">54.62% (MODERATE)</p>
+                    <div class="h-full mr-2">
+                        <crime />
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="">
+                            <p>Crime rate</p>
+                            <p class="font-semibold">{{ node.crime_rate }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            </div>
 
             <div class="flex flex-row mt-10">
-                <div class="h-full mr-2"><maps /></div>
+                <div class="h-full mr-2">
+                    <maps />
+                </div>
                 <div class="flex flex-col">
                     <div class="">
                         <p>Governor</p>
-                        <p class="font-semibold">Anies Baswedan</p>
+                        <p class="font-semibold">{{ node.governor}}</p>
                     </div>
                     <div class="mt-6">
                         <p>Population</p>
-                        <p class="font-semibold">11,074,811</p>
+                        <p class="font-semibold">{{ node.population}}</p>
                     </div>
                     <div class="mt-6">
                         <p>Area</p>
-                        <p class="font-semibold">664,01km<sup>2</sup></p>
+                        <p class="font-semibold">{{ node.area}}</p>
                     </div>
                 </div>
                 <div class="flex flex-col sm:ml-6 ml-4">
                     <div>
                         <p>Districts</p>
                         <div class="font-semibold">
-                            <p>Central Jakarta</p>
-                            <p>North Jakarta</p>
-                            <p>South Jakarta</p>
-                            <p>East Jakarta</p>
-                            <p>West Jakarta</p>
-                        </div>               
+                            <p v-for="value in node.districts" :key="value.id">{{value.name}}</p>
+                        </div>
                     </div>
-            </div>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import smile from '../assets/icons/Info/smile.vue'
-import airplane from '../assets/icons/Info/airplane.vue'
-import maps from '../assets/icons/Info/map.vue'
-import review from '../assets/icons/Info/review.vue'
-import crime from '../assets/icons/Info/crime.vue'
-
-import dayjs from 'dayjs'
-// import utc from 'dayjs/plugin/utc'
-// dayjs.extend(utc)
-
-    export default {
-        props: {
-            node: Object,
-            time: String,
-            weather: Object,
-        },
-        components: {
-            smile, airplane, maps, review, crime
-        },
-        methods: {
-            getToCost(e){
-                this.$router.push({name:'Cost Of Living', params:{city_slug: e}})
+    import smile from '../assets/icons/Info/smile.vue'
+            import airplane from '../assets/icons/Info/airplane.vue'
+            import maps from '../assets/icons/Info/map.vue'
+            import review from '../assets/icons/Info/review.vue'
+            import crime from '../assets/icons/Info/crime.vue'
+            
+            import dayjs from 'dayjs'
+            // import utc from 'dayjs/plugin/utc'
+            // dayjs.extend(utc)
+            
+                export default {
+                    props: {
+                        node: Object,
+                        time: String,
+                        weather: Object,
+                    },
+                    components: {
+                        smile, airplane, maps, review, crime
+                    },
+                    methods: {
+                        getToCost(e){
+                            this.$router.push({name:'Cost Of Living', params:{city_slug: e}})
             },
             getToScore(e){
                 this.$router.push({name: 'Score', params:{city_slug: e}})

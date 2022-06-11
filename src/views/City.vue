@@ -48,11 +48,9 @@ import axios from 'axios'
                 this.getWeather(city_slug)
                 
                 await axios
-                .get(`/api/v1/city-tree/detailed/info/${city_slug}`)
+                .get(`/api/v1/city-info/${city_slug}`)
                 .then(response => {
                     this.city = response.data
-                    document.title = this.city.name + ' | Stepbook '
-
                 })
                 .catch(error => {
                     console.log(error)

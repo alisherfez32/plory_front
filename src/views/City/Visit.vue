@@ -45,8 +45,6 @@ import axios from 'axios';
                 
                 this.$store.commit("setIsLoading", false)
                 
-                document.title = 'Experience | ' + city_slug
-
             }
         }
     }

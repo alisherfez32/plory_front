@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Currency from '../components/Currency.vue'
+import Currency from '../components/Tools/Currency.vue'
 
 import axios from 'axios'
 
@@ -18,13 +18,9 @@ import axios from 'axios'
       return {
       }
     },
-    mounted() {
-      this.getTree()
-      this.$router.push("/indonesia")
-    },
-    created() {
-    },
-    computed: {
+  mounted() {
+    this.$router.push("/indonesia")
+    this.getTree()
     },
     methods: {
       async getTree() {
@@ -33,7 +29,6 @@ import axios from 'axios'
           .then(response => {
             this.$store.commit("setRoot", response.data)
             
-            document.title = 'Stepbook'
           })
           .catch(error => {
             console.log("ERROR", error)
