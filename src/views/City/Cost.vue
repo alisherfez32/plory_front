@@ -1,151 +1,105 @@
 <template>
-    <div class="flex flex-col w-full justify-center items-center">
-      <Citynav class="flex w-full"/>
-        <p class="font-semibold md:w-3/5 m-1.5 text-center mb-2">General neccessities and prices you will find in Jakarta.</p>
-        <!-- <div class="flex w-full justify-center items-center">
-            <Costs :node="cost" />
-        </div> -->
-        <div class="flex flex-col md:w-3/5 sm:w-4/5 w-5/6 m-2 px-3 py-2 shadow-xl">
-          <div class="flex justify-end shadom-md">
-            <div class="flex flex-row mb-3">
-              <p class="bg-gray-300 px-2 py-0.5 h-6 text-sm rounded-xl">Eating out</p>
-              <div class="ml-2 mt-3.5 cursor-pointer">
-                <less @click="less" v-show="isOpen"/>
-                <more @click="less" v-show="!isOpen"/>
-              </div>
-            </div>
-          </div>
-          <div v-show="isOpen" class="transition-transform">
-            <div
-            class="flex flex-row " v-for="(value, key) in EatingOut" :key="value">
-              <p class="mt-2.5 w-4/5 text-lg text-gray-900 font-bold first-letter:text-7xl">
-                {{Capitalize(key)}}
-              </p>
-              <p class="text-lg text-gray-900 font-medium">
-                IDR {{value}} 
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-col md:w-3/5 sm:w-4/5 w-5/6 m-2 px-3 py-2 shadow-xl">
-          <div class="flex justify-end shadom-md">
-            <div class="flex flex-row mb-3">
-              <p class="bg-gray-300 px-2 py-0.5 h-6 text-sm rounded-xl">Groceries</p>
-              <div class="ml-2 mt-3.5 cursor-pointer">
-                <less @click="lessGrocery" v-show="isOpenGrocery"/>
-                <more @click="lessGrocery" v-show="!isOpenGrocery"/>
-              </div>
-            </div>
-          </div>
-          <div v-show="isOpenGrocery" class="transition-transform">
-            <div
-            class="flex flex-row " v-for="(value, key) in Groceries" :key="value">
-              <p class="mt-2.5 w-4/5 text-lg text-gray-900 font-bold first-letter:text-7xl">
-                {{Capitalize(key)}}
-              </p>
-              <p class="text-lg text-gray-900 font-medium">
-                IDR {{value}} 
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-col md:w-3/5 sm:w-4/5 w-5/6 m-2 px-3 py-2 shadow-xl">
-          <div class="flex justify-end shadom-md">
-            <div class="flex flex-row mb-3">
-              <p class="bg-gray-300 px-2 py-0.5 h-6 text-sm rounded-xl">Utilities</p>
-              <div class="ml-2 mt-3.5 cursor-pointer">
-                <less @click="lessUtility" v-show="isOpenUtility"/>
-                <more @click="lessUtility" v-show="!isOpenUtility"/>
-              </div>
-            </div>
-          </div>
-          <div v-show="isOpenUtility" class="transition-transform">
-            <div
-            class="flex flex-row " v-for="(value, key) in Utilities" :key="value">
-              <p class="mt-2.5 w-4/5 text-lg text-gray-900 font-bold first-letter:text-7xl">
-                {{Capitalize(key)}}
-              </p>
-              <p class="text-lg text-gray-900 font-medium">
-                IDR {{value}}
-              </p>
-            </div>
-          </div>
-        </div>
+  <div class="flex flex-col w-full justify-center items-center">
+    <Citynav class="flex w-full" />
+    <p class="font-semibold md:w-3/5 m-1.5 text-center mb-2">General neccessities and prices you will find in Jakarta.
+    </p>
+
+    <div class="flex w-10/12 items-start">
+      <Filter :filter="filters" />
     </div>
+
+    <div class="flex flex-wrap w-full justify-center items-center">
+      <CostCP v-for="item in costs" :key="item.id" :node="item" />
+    </div>
+  </div>
 </template>
 
 <script>
 import Citynav from '../../components/header/Citynav.vue';
-// import Costs from '../../components/City/Cost.vue'
-
-import more from '../../assets/icons/Info/more.vue'
-import less from '../../assets/icons/Info/less.vue'
+import CostCP from '../../components/City/Cost.vue'
 import dollar from '../../assets/icons/Info/dollar.vue'
+import Filter from '../../components/Tools/Filters/Filter.vue'
 
 import axios from 'axios';
-    export default {
+export default {
         name: 'Cost',
         components: {
-            Citynav,
-            // Costs, 
-            more, less, dollar
+          Citynav,
+          CostCP, 
+          dollar, Filter
         },
         data(){
             return {
-                node: {},
-                isOpen: true,
-                isOpenGrocery: false,
-                isOpenUtility: false,
+              filters: [],
+              costs: []
             }
         },
         mounted() {
-            this.getCost()
-        },
-        methods: {
-            async getCost() {
-                this.$store.commit("setIsLoading", true)
-
-                const city_slug = this.$route.params.city_slug
-                
-                await axios.get(`/api/v1/costs/city/${city_slug}/`).then(response => {
-                    this.node = response.data
-
-                    console.log(response.data);
-                })
-                .catch(error => {
-                    console.log(error)
-                })
-                
-                this.$store.commit("setIsLoading", false)
-                
-            },
-            less() {
-                this.isOpen = !this.isOpen
-            },
-            lessGrocery(){
-              this.isOpenGrocery = !this.isOpenGrocery
-            },
-            lessUtility(){
-              this.isOpenUtility = !this.isOpenUtility
-            },
-            Capitalize(str){
-              let str1 = str.charAt(0).toUpperCase() + str.slice(1) 
-              return str1.replace(/_+/g, ' ')
-            },
-            
-        },
-        computed: {
-          EatingOut(){
-            return Object.fromEntries(Object.entries(this.node).slice(1, 11))
-          },
-          Groceries(){
-            return Object.fromEntries(Object.entries(this.node).slice(11, 26))
-          },
-          Utilities(){
-            return Object.fromEntries(Object.entries(this.node).slice(26, 34))
-          }
-        }
+          this.getCost()
+  },
+  watch: {
+    $route() {
+      this.getCost()
     }
+  },
+  methods: {
+  async getCost() {
+      this.$store.commit("setIsLoading", true)
+
+      const city_slug = this.$route.params.city_slug
+      const query = this.$route.query.filter_by
+
+      if (query === undefined) {
+        await axios.get(`/api/v1/costs/city/${city_slug}`).then(response => {
+          this.costs = response.data
+          this.getFilters()
+
+        })
+          .catch(error => {
+            console.log(error)
+          })
+      } else {
+        const arrayQuery = query.split('-and-')
+
+        await axios.post(`/api/v1/costs/filter_by/`, { 'city_slug': city_slug, 'filter_by': arrayQuery }).then(response => {
+          this.costs = response.data
+          this.getFilters(arrayQuery)
+        })
+          .catch(error => {
+            console.log(error)
+          })
+      }
+
+      this.$store.commit("setIsLoading", false)
+
+    },
+
+    async getFilters(arrayQuery) {
+      await axios.get(`/api/v1/costs/list_filters/`).then(response => {
+        response.data.map(el => {
+          if (arrayQuery) {
+            const UniqueValues = new Set(arrayQuery)
+            if (UniqueValues.has(el.name.toLowerCase())) {
+              return el.used = true
+            }
+          } else {
+            return
+          }
+        })
+        this.filters = response.data
+      })
+        .catch(error => {
+          console.log(error)
+        })
+    }
+            
+  },
+  computed: {
+    checkIt(name) {
+      console.log(name);
+    }
+    }
+  }
 </script>
 
 <style lang="scss" scoped>

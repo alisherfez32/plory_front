@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col ml-2">
+    <div class="flex flex-col ml-2 mb-4">
         <div class="flex p-2 flex-row cursor-pointer" @click="putFilter">
             <div>
                 <Heavy v-show="isFilterd" />
@@ -7,13 +7,13 @@
             </div>
             <p class="ml-3">Make a Filter</p>
         </div>
-        <div>
-            <!-- <Buttons v-for="item in filter" :key="item.id"
-            v-show="isFilterd" /> -->
+        <div class="flex flex-wrap justify-center">
             <button v-for="item in filter" :key="item.name"
                 :class="{ 'underline text-red-500 border-red-300 font-bold' : item.used}" v-show="isFilterd"
                 @click="getFilter(item)"
-                class="shadow-md rounded-3xl mx-1 py-2 px-3 border border-[#484343]">{{Capitalize(item.name)}}</button>
+                class="shadow-md rounded-3xl mx-1 my-0.5 sm:py-2 sm:px-3 border border-[#484343] sm:text-sm text-xs 
+                py-1 px-1.5
+                ">{{Capitalize(item.name)}}</button>
         </div>
     </div>
 </template>

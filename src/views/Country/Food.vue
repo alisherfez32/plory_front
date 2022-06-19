@@ -49,7 +49,6 @@ import axios from 'axios';
                 
 
                 if (query === undefined) {
-                    
                     await axios.get(`/api/v1/foods/country/${country_slug}/`).then(response => {
                         this.foods = response.data
                         this.getFilters()
@@ -60,16 +59,12 @@ import axios from 'axios';
                     
                     this.$store.commit("setIsLoading", false)
                 } else {
-
                     this.getFilters()
                     const arrayQuery = query.split('-and-')
 
                     await axios.post(`/api/v1/foods/filter_by/`, { 'country_slug': country_slug, 'filter_by': arrayQuery }).then(response => {
                         this.getFilters(arrayQuery)
                         this.foods = response.data
-
-                        
-
                     })
                     .catch(error => {
                         console.log(error)
@@ -82,10 +77,13 @@ import axios from 'axios';
             async getFilters(arrayQuery) {                
                 await axios.get(`/api/v1/foods/list_filters/`).then(response => {
                     response.data.map(el => {
+                        if (arrayQuery) {
                         const UniqueValues = new Set(arrayQuery)
-
                         if (UniqueValues.has(el.name.toLowerCase())) {
                             return el.used = true
+                        }
+                        } else {
+                            return
                         }
                     })
 
