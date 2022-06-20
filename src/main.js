@@ -16,7 +16,7 @@ const options = {
 }
 
 const dev = false
-let url = "http://35.158.203.11"
+let url = "http://54.87.118.6"
 // let url = "http://olubolu.com"
 
 if (dev) {
