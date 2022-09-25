@@ -110,7 +110,6 @@ import Visit from '../components/City/Visit.vue'
 
             if(query){
                 this.query = query
-
                 this.perfomSearch()
             }
         },
